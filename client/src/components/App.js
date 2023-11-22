@@ -4,6 +4,7 @@ import {
 	Route,
 	Link,
 } from "react-router-dom";
+
 import People from './People';
 import NavBar from "./NavBar/NavBar";
 import WelcomePage from "./WelcomePage";
@@ -14,9 +15,12 @@ import FootballHome from "./Sports/Football";
 import MotorsportHome from "./Sports/Motorsport";
 import CombatHome from "./Sports/Combat";
 import TennisHome from "./Sports/Tennis";
-import AccountPage from "./Account.js"
+import AccountPage from "./Account/Account"
 
 const App = () => {
+
+
+
 	return (
 		<Router>
 			<NavBar />
