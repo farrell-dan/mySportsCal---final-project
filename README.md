@@ -23,38 +23,37 @@ The project follows a straightforward folder structure:
   - node_modules
   - public
     - assets
-      -
+      - Hamburger_icon.svg.png
     - index.html
     - styles.css
   - src
-    - assets
+    <!-- - assets
       - Daniel Farrell CV.jpg
       - Daniel Farrell CV.pdf
       - image-placeholder-500x500.jpg
       - IMG_2243.JPG
-      - IMG_9209.jpeg
+      - IMG_9209.jpeg -->
     - components
-      - AboutMe.js
+      - NavBar
+        - NavBar.css
+        - NavBar.js
       - App.js
-      - Contact.js
-      - CVDownload.js
-      - Home.js
-      - NavBar.js
-      - Projects.js
-    - .env
+      - People.js
     - index.js
   - package.json
   - yarn.lock
-- node_modules
 - **server**
+  - handlers
+    - getItemsbyID.js
+    - getPeople.js
   - node_modules
   - .env
+  - handlers.js
   - index.js
   - package.json
   - yarn.lock
 - .gitignore
 - README.md
-- yarn.lock
 
 
 ### Responsive Design

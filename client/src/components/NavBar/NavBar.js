@@ -46,46 +46,46 @@ const NavBar = () => {
 				>
 					<StyledLi className="active">
 						<StyledLink aria-hidden="true" to="/">
-						mySPORTScal
+							mySPORTScal
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
-						Soccer
+						<StyledLink aria-hidden="true" to="/soccer">
+							Soccer
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
-						Hockey
+						<StyledLink aria-hidden="true" to="/hockey">
+							Hockey
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
+						<StyledLink aria-hidden="true" to="/basketball">
 							Basketball
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
+						<StyledLink aria-hidden="true" to="/football">
 							Football
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
+						<StyledLink aria-hidden="true" to="/motorsport">
 							Motorsport
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
-							MMA
+						<StyledLink aria-hidden="true" to="/combat">
+							Combat
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
+						<StyledLink aria-hidden="true" to="/tennis">
 							Tennis
 						</StyledLink>
 					</StyledLi>
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/">
+						<StyledLink aria-hidden="true" to="/account">
 							Account
 						</StyledLink>
 					</StyledLi>
@@ -99,7 +99,7 @@ export default NavBar;
 
 const StyledNav = styled.nav`
 	display: flex;
-	justify-content:flex-end;
+	justify-content: flex-end;
 	align-items: center;
 	height: 8vh;
 	--gap: 0;
