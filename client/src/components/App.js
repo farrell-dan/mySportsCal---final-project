@@ -5,14 +5,12 @@ import {
 	Link,
 } from "react-router-dom";
 import People from './People';
+import NavBar from "./NavBar/NavBar";
 
 const App = () => {
 	return (
 		<Router>
-			<nav>
-                <ul><Link to="/">Home</Link>
-                <Link to="/people">People</Link></ul>
-            </nav>
+			<NavBar />
 			<Switch>
 				<Route path="/" element={<h1>Home</h1>} />
 				<Route path="/people" element={<People/>} />
