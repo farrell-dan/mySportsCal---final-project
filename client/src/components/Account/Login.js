@@ -6,7 +6,16 @@ const Login = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    }
+
+		fetch("/api/login", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json",
+			},
+			body: JSON.stringify({email, password})
+		});
+	}
 
 	return (
 		<div className="container">

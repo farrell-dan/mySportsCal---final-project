@@ -29,6 +29,17 @@
     jsonpointer "^5.0.0"
     leven "^3.1.0"
 
+"@auth0/auth0-react@auth0/auth0-react":
+  version "2.2.3"
+  resolved "https://codeload.github.com/auth0/auth0-react/tar.gz/c043f9aaf24e3f53192399ac424ec269fe300ad0"
+  dependencies:
+    "@auth0/auth0-spa-js" "^2.1.2"
+
+"@auth0/auth0-spa-js@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@auth0/auth0-spa-js/-/auth0-spa-js-2.1.2.tgz#2217db13ce0feb480a190ed165b36681bd48633c"
+  integrity sha512-xdA65Z/U7++Y7L9Uwh8Q8OVOs6qgFz+fb7GAzHFjpr1icO37B//xdzLXm7ZRgA19RWrsNe1nme3h896igJSvvw==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.16.0", "@babel/code-frame@^7.22.13", "@babel/code-frame@^7.23.4", "@babel/code-frame@^7.8.3":
   version "7.23.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.23.4.tgz#03ae5af150be94392cb5c7ccd97db5a19a5da6aa"

@@ -7,7 +7,11 @@ const PORT = 8888
 
 const app = express();
 
-const {getPeople, eplData} = require("./handlers")
+const {getPeople, eplData} = require("./handlers");
+const signUp = require("./handlers/signup");
+const login = require("./handlers/login");
+
+app.use(express.json())
 
 app.get("/api/test", (req, res) => {
     res.json({message: "You hit the end point!"})
@@ -35,6 +39,10 @@ app.get("/api/testMongo", async (req, res) => {
 app.get("/api/people", getPeople);
 
 app.get("/api/epl-data", eplData)
+
+app.post("/api/signup", signUp)
+
+app.post("/api/login", login)
 
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
