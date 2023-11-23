@@ -101,7 +101,7 @@ const StyledNav = styled.nav`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	height: 8vh;
+	min-height: 3rem;
 	--gap: 0;
 `;
 
@@ -121,7 +121,7 @@ const StyledLi = styled.li`
 const StyledLink = styled(Link)`
 	text-decoration: none;
 	cursor: pointer;
-	font-size: 3vh;
+	font-size: 1.25rem;
 	font-family: "Roboto", sans-serif;
 
 	&:hover {
