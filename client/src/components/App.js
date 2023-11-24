@@ -17,7 +17,8 @@ import MotorsportHome from "./Sports/Motorsport";
 import CombatHome from "./Sports/Combat";
 import TennisHome from "./Sports/Tennis";
 import AccountPage from "./Account/Account";
-import EnglishPremierLeague from "./Sports/Soccer/Leagues/England";
+import EnglishPremierLeague from "./Sports/Soccer/Leagues/EnglishPremierLeague";
+import LaLiga from "./Sports/Soccer/Leagues/LaLiga";
 
 const App = () => {
 	return (
@@ -36,6 +37,7 @@ const App = () => {
 					<Route path="/account" element={<AccountPage />} />
 					<Route path="/people" element={<People />} />
 					<Route path="/epl" element={<EnglishPremierLeague />} />
+					<Route path="/laliga" element={<LaLiga />} />
 				</Switch>
 			</MyGamesProvider>
 		</Router>

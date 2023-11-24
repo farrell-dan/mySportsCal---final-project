@@ -1,48 +1,22 @@
 const express = require("express");
-const { MongoClient } = require("mongodb");
-require("dotenv").config();
-const { MONGO_URI } = process.env;
 
-const PORT = 8888
+const PORT = 8888;
 
 const app = express();
 
-const {getPeople, eplData} = require("./handlers");
-const signUp = require("./handlers/signup");
-const login = require("./handlers/login");
+const { eplData, signUp, login, LaLigaData } = require("./handlers");
 
-app.use(express.json())
+app.use(express.json());
 
-app.get("/api/test", (req, res) => {
-    res.json({message: "You hit the end point!"})
-})
+//gets for the different leagues
+app.get("/api/epl-data", eplData);
+app.get("/api/laliga-data", LaLigaData)
 
-app.get("/api/testMongo", async (req, res) => {
-	const client = new MongoClient(MONGO_URI);
+//posts for the account stuff
+app.post("/api/signup", signUp);
+app.post("/api/login", login);
 
-	try {
-		await client.connect();
-		const result = await client
-			.db("mySportsCal")
-			.collection("people")
-			.insertOne({ name: "Dimmy" });
 
-		res.json(result);
-	} catch (err) {
-		console.log(err);
-		res.status(400).json({ message: "something went wrong" });
-	} finally {
-		await client.close();
-	}
-});
-
-app.get("/api/people", getPeople);
-
-app.get("/api/epl-data", eplData)
-
-app.post("/api/signup", signUp)
-
-app.post("/api/login", login)
 
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
