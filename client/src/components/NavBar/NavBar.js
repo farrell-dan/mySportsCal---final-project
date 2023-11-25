@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import styled from "styled-components";
 import "./NavBar.css";
+import LogoutButton from "../Account/Logout";
 
 const NavBar = () => {
 	useEffect(() => {
@@ -90,6 +91,7 @@ const NavBar = () => {
 						</StyledLink>
 					</StyledLi>
 				</StyledUl>
+				<LogoutButton/>
 			</StyledNav>
 		</div>
 	);

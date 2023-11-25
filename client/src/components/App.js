@@ -4,9 +4,12 @@ import {
 	Route,
 	Link,
 } from "react-router-dom";
+
 import { MyGamesProvider } from "./MyGamesContext";
+import { AuthProvider } from "./Account/AuthProvider";
 
 import People from "./People";
+
 import NavBar from "./NavBar/NavBar";
 import WelcomePage from "./WelcomePage";
 import SoccerHome from "./Sports/Soccer/Soccer";
@@ -20,10 +23,14 @@ import AccountPage from "./Account/Account";
 import EnglishPremierLeague from "./Sports/Soccer/Leagues/EnglishPremierLeague";
 import LaLiga from "./Sports/Soccer/Leagues/LaLiga";
 
+import PrivateRoute from "./Account/PrivateRoute";
+
 const App = () => {
 	return (
 		<Router>
+			<AuthProvider>
 			<NavBar />
+			
 			<MyGamesProvider>
 				<Switch>
 					<Route path="/" element={<WelcomePage />} />
@@ -40,6 +47,7 @@ const App = () => {
 					<Route path="/laliga" element={<LaLiga />} />
 				</Switch>
 			</MyGamesProvider>
+			</AuthProvider>
 		</Router>
 	);
 };
