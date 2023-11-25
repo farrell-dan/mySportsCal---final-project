@@ -6,6 +6,7 @@ const Bundesliga = () => {
 	const [data, setData] = useState(null);
 	const { myGames, addGame, removeGame } = useMyGames();
 	const [visibleGames, setVisibleGames] = useState(15);
+	const [searchTerm, setSearchTerm] = useState("");
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -22,7 +23,12 @@ const Bundesliga = () => {
 
 	const currentDateTime = new Date();
 	const upcomingGames = data
-		?.filter((fixture) => new Date(fixture.DateUtc) > currentDateTime)
+		?.filter(
+			(fixture) =>
+				new Date(fixture.DateUtc) > currentDateTime &&
+				(fixture.HomeTeam.toLowerCase().includes(searchTerm.toLowerCase()) ||
+					fixture.AwayTeam.toLowerCase().includes(searchTerm.toLowerCase()))
+		)
 		.sort((a, b) => new Date(a.DateUtc) - new Date(b.DateUtc));
 
 		const loadMoreGames = () => {
@@ -32,6 +38,12 @@ const Bundesliga = () => {
 	return (
 		<div className="container">
 			<h2>Bundesliga</h2>
+			<input
+					type="text"
+					placeholder="Search by team name"
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+				/>
 			<div>
 				{upcomingGames ? (
 					<>
@@ -60,7 +72,7 @@ const Bundesliga = () => {
 								);
 
 								return (
-									<tr key={"EPL" + fixture.MatchNumber}>
+									<tr key={"Bun" + fixture.MatchNumber}>
 										<td>{dateTimeUtc.toLocaleDateString()}</td>
 										<td>{formattedTime}</td>
 										<td>{fixture.HomeTeam}</td>
@@ -70,13 +82,13 @@ const Bundesliga = () => {
 											<input
 												type="checkbox"
 												checked={myGames.some(
-													(game) => game.id === `EPL${fixture.MatchNumber}`
+													(game) => game.id === `Bun${fixture.MatchNumber}`
 												)}
 												onChange={() => {
 													const game = {
 														...fixture,
-														MatchNumber: "EPL" + fixture.MatchNumber,
-														id: `EPL${fixture.MatchNumber}`,
+														MatchNumber: "Bun" + fixture.MatchNumber,
+														id: `Bun${fixture.MatchNumber}`,
 													};
 													if (myGames.some((g) => g.id === game.id)) {
 														removeGame(game.id);

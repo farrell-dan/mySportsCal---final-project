@@ -3,11 +3,13 @@ import "./Sports/Soccer/Soccer.css";
 import { useState, useEffect } from "react";
 import Login from "./Account/Login";
 import { useAuth } from "./Account/AuthProvider";
+import Register from "./Account/Register";
 
 const WelcomePage = () => {
 	const { myGames } = useMyGames();
 	const [sortedGames, setSortedGames] = useState([]);
 	const [visibleGames, setVisibleGames] = useState(12);
+	const [currentForm, setCurrentForm] = useState("login");
 	const { login } = useAuth();
 
 	useEffect(() => {
@@ -30,12 +32,20 @@ const WelcomePage = () => {
 
 	const { authenticated } = useAuth();
 
+	const toggleForm = (formName) => {
+		setCurrentForm(formName);
+	};
+
 	return (
 		<>
 			<h1>mySPORTScal</h1>
 			<h2>Welcome Page</h2>
 
-			{!authenticated && <Login />}
+			{!authenticated && (currentForm === "login" ? (
+				<Login onFormSwitch={toggleForm} />
+			) : (
+				<Register onFormSwitch={toggleForm}/>
+			))}
 
 			<div className="container">
 				<h2>My Upcoming Games</h2>

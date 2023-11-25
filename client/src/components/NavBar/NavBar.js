@@ -89,9 +89,11 @@ const NavBar = () => {
 						<StyledLink aria-hidden="true" to="/account">
 							Account
 						</StyledLink>
+						
 					</StyledLi>
+					<LogoutButton/>
 				</StyledUl>
-				<LogoutButton/>
+				
 			</StyledNav>
 		</div>
 	);

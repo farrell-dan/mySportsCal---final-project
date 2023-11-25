@@ -6,6 +6,7 @@ const LaLiga = () => {
 	const [data, setData] = useState(null);
 	const { myGames, addGame, removeGame } = useMyGames();
 	const [visibleGames, setVisibleGames] = useState(15);
+	const [searchTerm, setSearchTerm] = useState("");
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -22,8 +23,13 @@ const LaLiga = () => {
 
 	const currentDateTime = new Date();
 	const upcomingGames = data
-		?.filter((fixture) => new Date(fixture.DateUtc) > currentDateTime)
-		.sort((a, b) => new Date(a.DateUtc) - new Date(b.DateUtc));
+	?.filter(
+		(fixture) =>
+			new Date(fixture.DateUtc) > currentDateTime &&
+			(fixture.HomeTeam.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				fixture.AwayTeam.toLowerCase().includes(searchTerm.toLowerCase()))
+	)
+	.sort((a, b) => new Date(a.DateUtc) - new Date(b.DateUtc));
 
 	const loadMoreGames = () => {
 		setVisibleGames((prevVisibleGames) => prevVisibleGames + 15);
@@ -32,6 +38,12 @@ const LaLiga = () => {
 	return (
 		<div className="container">
 			<h2>La Liga</h2>
+			<input
+					type="text"
+					placeholder="Search by team name"
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+				/>
 			<div>
 				{upcomingGames ? (
 					<>
