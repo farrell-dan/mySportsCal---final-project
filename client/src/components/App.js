@@ -8,8 +8,6 @@ import {
 import { MyGamesProvider } from "./MyGamesContext";
 import { AuthProvider } from "./Account/AuthProvider";
 
-import People from "./People";
-
 import NavBar from "./NavBar/NavBar";
 import WelcomePage from "./WelcomePage";
 import SoccerHome from "./Sports/Soccer/Soccer";
@@ -24,6 +22,11 @@ import EnglishPremierLeague from "./Sports/Soccer/Leagues/EnglishPremierLeague";
 import LaLiga from "./Sports/Soccer/Leagues/LaLiga";
 
 import PrivateRoute from "./Account/PrivateRoute";
+import SerieA from "./Sports/Soccer/Leagues/SerieA";
+import Ligue1 from "./Sports/Soccer/Leagues/Ligue1";
+import EuropaLeague from "./Sports/Soccer/Leagues/EuropaLeague";
+import ChampionsLeague from "./Sports/Soccer/Leagues/ChampionsLeague";
+import Bundesliga from "./Sports/Soccer/Leagues/Bundesliga";
 
 const App = () => {
 	return (
@@ -42,9 +45,14 @@ const App = () => {
 					<Route path="/combat" element={<CombatHome />} />
 					<Route path="/tennis" element={<TennisHome />} />
 					<Route path="/account" element={<AccountPage />} />
-					<Route path="/people" element={<People />} />
 					<Route path="/epl" element={<EnglishPremierLeague />} />
 					<Route path="/laliga" element={<LaLiga />} />
+					<Route path="/seriea" element={<SerieA />} />
+					<Route path="/ligue1" element={<Ligue1 />} />
+					<Route path="/europaleague" element={<EuropaLeague />} />
+					<Route path="/championsleague" element={<ChampionsLeague />} />
+					<Route path="/bundesliga" element={<Bundesliga />} />
+
 				</Switch>
 			</MyGamesProvider>
 			</AuthProvider>
