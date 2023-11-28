@@ -21,7 +21,7 @@ app.get("/api/europa-league-data", europaLeagueData)
 app.post("/api/signup", signUp);
 app.post("/api/login", login);
 
-app.patch("api/update", updateSchedule)
+app.patch("/api/update/:email", updateSchedule)
 
 
 

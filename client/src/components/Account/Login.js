@@ -5,7 +5,7 @@ const Login = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [emailNotExist, setEmailNotExist] = useState(false);
-	const { login } = useAuth(); // Assuming you have a login function in your AuthProvider
+	const { login } = useAuth(); 
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -22,7 +22,7 @@ const Login = (props) => {
 
 			if (response.ok) {
 				// Log in was successful
-				login(); // Update authentication state
+				login(email)
 			} else {
 				// Log in failed
 				console.error("Login failed");

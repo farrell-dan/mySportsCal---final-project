@@ -1,23 +1,25 @@
 import React, { createContext, useContext, useState } from 'react';
+import { useAuth } from './Account/AuthProvider';
 
 const MyGamesContext = createContext();
 
 export const MyGamesProvider = ({ children }) => {
   const [myGames, setMyGames] = useState([]);
+  const {email} = useAuth();
 
   const addGame = (game) => {
     setMyGames((prevGames) => [...prevGames, game]);
-    updateScheduleInBackend((prevGames) => [...prevGames, game]);
+    updateScheduleInBackend([...myGames, game], email);
   };
 
   const removeGame = (matchNumber) => {
     setMyGames((prevGames) => prevGames.filter((game) => game.MatchNumber !== matchNumber));
-    updateScheduleInBackend((prevGames) => prevGames.filter((game) => game.MatchNumber !== matchNumber))
+    updateScheduleInBackend(myGames.filter((game) => game.MatchNumber !== matchNumber), email)
   };
 
-  const updateScheduleInBackend = async (newSchedule) => {
+  const updateScheduleInBackend = async (newSchedule, userEmail) => {
     try {
-      const response = await fetch('your-backend-endpoint', {
+      const response = await fetch(`/api/update/${userEmail}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
