@@ -23,7 +23,7 @@ const signUp = async (req, res) => {
 		const resultOfInsertion = await client
 			.db("mySportsCal")
 			.collection("Users")
-			.insertOne({ email, fullName, password: hashPassword });
+			.insertOne({ _id: email, email, fullName, password: hashPassword, schedule: [] });
 
 		if (resultOfInsertion.insertedId) {
 			return res.status(200).json({ message: "Account creation successful" });

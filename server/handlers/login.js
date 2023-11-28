@@ -16,7 +16,7 @@ const login = async (req, res) => {
 			.findOne({ email });
 
 		if (!result) {
-			return res.status(400).json({ message: "Email does not exists" });
+			return res.status(400).json({ message: "Email does not exist" });
 		}
 
         const comparedPassword = await bcrypt.compare(password, result.password)

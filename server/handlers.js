@@ -2,6 +2,7 @@
 const eplData = require("./handlers/Leagues/eplData")
 const signUp = require("./handlers/signup");
 const login = require("./handlers/login");
+const updateSchedule = require("./handlers/updateSchedule");
 const LaLigaData = require("./handlers/Leagues/LaLigaData")
 const bundesligaData = require("./handlers/Leagues/bundeligaData")
 const serieAData = require("./handlers/Leagues/serieAData")
@@ -20,5 +21,6 @@ module.exports = {
     ligue1Data,
     serieAData,
     signUp,
-    login
+    login,
+    updateSchedule
 }

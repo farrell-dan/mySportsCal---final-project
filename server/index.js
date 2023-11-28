@@ -4,7 +4,7 @@ const PORT = 8888;
 
 const app = express();
 
-const { eplData, signUp, login, LaLigaData, bundesligaData, serieAData, ligue1Data, championsLeagueData, europaLeagueData } = require("./handlers");
+const { eplData, signUp, login, LaLigaData, bundesligaData, serieAData, ligue1Data, championsLeagueData, europaLeagueData, updateSchedule } = require("./handlers");
 
 app.use(express.json());
 
@@ -20,6 +20,8 @@ app.get("/api/europa-league-data", europaLeagueData)
 //posts for the account stuff
 app.post("/api/signup", signUp);
 app.post("/api/login", login);
+
+app.patch("api/update", updateSchedule)
 
 
 

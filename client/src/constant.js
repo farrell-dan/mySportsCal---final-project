@@ -1,0 +1,1 @@
+export const LeagueIdentifiers = { bundeslilga: "Bundes"}

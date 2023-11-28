@@ -1,44 +1,57 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthProvider";
 
-
 const Login = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [emailNotExist, setEmailNotExist] = useState(false);
 	const { login } = useAuth(); // Assuming you have a login function in your AuthProvider
-  
+
 	const handleSubmit = async (event) => {
-	  event.preventDefault();
-  
-	  try {
-		const response = await fetch("/api/login", {
-		  method: "POST",
-		  headers: {
-			"Content-Type": "application/json",
-			Accept: "application/json",
-		  },
-		  body: JSON.stringify({ email, password }),
-		});
-  
-		if (response.ok) {
-		  // Log in was successful
-		  login(); // Update authentication state
-		  
-		} else {
-		  // Log in failed
-		  console.error("Login failed");
+		event.preventDefault();
+
+		try {
+			const response = await fetch("/api/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				body: JSON.stringify({ email, password }),
+			});
+
+			if (response.ok) {
+				// Log in was successful
+				login(); // Update authentication state
+			} else {
+				// Log in failed
+				console.error("Login failed");
+				const responseBody = await response.json();
+				if (responseBody.message === "Email does not exist") {
+					console.log("Email does not exist. Please register.");
+					setEmailNotExist(true);
+				} else {
+					console.log("Login error:", responseBody.message);
+				}
+			}
+		} catch (error) {
+			console.error("Error during login:", error);
 		}
-	  } catch (error) {
-		console.error("Error during login:", error);
-	  }
 	};
 
 	const { authenticated } = useAuth();
 
-
 	return (
 		<div className="container">
 			<h2> Log In</h2>
+
+			{emailNotExist && (
+        <div style={{ color: "red", marginBottom: "10px" }}>
+          Email does not exist. Please register.
+        </div>
+      )}
+
+
 			<div className="auth-form-contianer">
 				<form className="login-form" onSubmit={handleSubmit}>
 					<label htmlFor="email">Email</label>
