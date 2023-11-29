@@ -2,15 +2,31 @@ import { Link } from "react-router-dom";
 
 const SoccerHome = () => {
 	const logoStyle = {
-		width: "250px", // Set the width of the logos as per your design
-		height: "250px", // Set the height of the logos as per your design
-		marginRight: "10px", // Add some margin between the logos
+		width: "250px",
+		height: "250px",
+		marginRight: "10px",
 	};
+
+	const leagues = [
+		{name: "LaLiga" , path: "/soccer/laliga"},
+		{name: "Serie A" , path: "/soccer/seriea"},
+		{name: "Premier League" , path: "/soccer/epl"},
+		{name: "Ligue 1" , path: "/soccer/ligue1"},
+		{name: "Bundesliga" , path: "/soccer/bundesliga"},
+		{name: "UEFA Champions League" , path: "/soccer/ucl"},
+		{name: "UEFA Europa League" , path: "/soccer/uel"}
+	];
 
 	return (
 		<>
 			<h1>Soccer</h1>
-			<Link to="/epl">
+
+			{leagues.map((league) => (
+				<Link key={league.path} to={league.path}>
+					<img src={`/assets/LeagueLogos/Soccer/${league.name.replace(/\s/g, '')}Logo.png`} alt={`${league.name} Logo`} style={logoStyle} />
+				</Link>
+			))}
+			{/* <Link to="/epl">
 				<img src="/assets/LeagueLogos/Soccer/PremierLeagueLogo.png" alt="EPL Logo" style={logoStyle} />
 				English Premier League
 			</Link>
@@ -49,7 +65,7 @@ const SoccerHome = () => {
 					style={logoStyle}
 				/>
 				Europa League
-			</Link>
+			</Link> */}
 			<h2>MLS</h2>
 		</>
 	);

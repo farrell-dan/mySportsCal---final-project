@@ -9,13 +9,13 @@ const { eplData, signUp, login, LaLigaData, bundesligaData, serieAData, ligue1Da
 app.use(express.json());
 
 //gets for the different leagues
-app.get("/api/epl-data", eplData);
-app.get("/api/laliga-data", LaLigaData)
-app.get("/api/bundesliga-data", bundesligaData)
-app.get("/api/serie-a-data", serieAData)
-app.get("/api/ligue-1-data", ligue1Data)
-app.get("/api/champions-league-data", championsLeagueData)
-app.get("/api/europa-league-data", europaLeagueData)
+app.get("/api/epl", eplData);
+app.get("/api/laliga", LaLigaData)
+app.get("/api/bundesliga", bundesligaData)
+app.get("/api/seriea", serieAData)
+app.get("/api/ligue1", ligue1Data)
+app.get("/api/uefachampionsleague", championsLeagueData)
+app.get("/api/uel", europaLeagueData)
 
 //posts for the account stuff
 app.post("/api/signup", signUp);
