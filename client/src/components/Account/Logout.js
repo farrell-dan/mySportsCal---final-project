@@ -1,8 +1,10 @@
 import React from "react";
-import { useAuth } from "./AuthProvider"; // Replace with your actual authentication context
+import { useAuth } from "./AuthProvider"; 
+import { useMyGames } from "../MyGamesContext";
 
 const LogoutButton = () => {
   const { logout } = useAuth(); // Replace with your actual logout function from the authentication context
+const {setMyGames} = useMyGames();
 
   const handleLogout = () => {
     logout();

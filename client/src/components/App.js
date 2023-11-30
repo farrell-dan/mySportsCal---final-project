@@ -26,10 +26,13 @@ import SoccerLeagues from "./Sports/Soccer/SoccerLeagues";
 const App = () => {
 	return (
 		<Router>
+			
 			<AuthProvider>
-			<NavBar />
+			
 			
 			<MyGamesProvider>
+
+			<NavBar />
 				<Switch>
 					<Route path="/" element={<WelcomePage />} />
 					<Route path="/soccer" element={<SoccerHome />} />

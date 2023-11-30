@@ -54,20 +54,10 @@ const WelcomePage = () => {
 			
 				
 				{authenticated ? (<><h2>My Upcoming Games</h2> <MyEvents /></>) : renderAuthForm()}
-				{visibleGames < sortedGames.length && (
-					<button onClick={loadMoreGames}>Load More</button>
-				)}
+				
 			</div>
 		</>
 	);
 };
 
 export default WelcomePage;
-
-
-// {!authenticated &&
-// 	(currentForm === "login" ? (
-// 		<Login onFormSwitch={toggleForm} />
-// 	) : (
-// 		<Register onFormSwitch={toggleForm} />
-// 	))}

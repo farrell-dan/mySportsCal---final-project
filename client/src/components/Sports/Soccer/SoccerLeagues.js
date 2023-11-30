@@ -73,7 +73,6 @@ const SoccerLeagues = () => {
 										undefined,
 										timeOptions
 									);
-
 									return (
 										<tr key={`${leagueName}${fixture.MatchNumber}`}>
 											<td>{dateTimeUtc.toLocaleDateString()}</td>

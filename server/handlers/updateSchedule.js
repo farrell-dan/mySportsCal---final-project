@@ -12,7 +12,7 @@ const updateSchedule = async (request, response) => {
 
 	try {
 		await client.connect();
-
+		console.log(newSchedule.length)
 		const result = await client
 			.db("mySportsCal")
 			.collection("Users")
