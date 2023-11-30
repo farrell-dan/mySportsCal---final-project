@@ -1,30 +1,35 @@
-import { useState, useEffect } from "react";
-import { useMyGames } from "../../MyGamesContext";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useMyGames } from "../MyGamesContext";
+import { useAuth } from "../Account/AuthProvider";
 
-const SoccerLeagues = () => {
+const MyEvents = () => {
 	const [data, setData] = useState(null);
 	const { myGames, addGame, removeGame } = useMyGames();
-	const { leagueName } = useParams();
-	const apiUrl = `http://localhost:3000/api/${leagueName}`;
-	const currentDateTime = new Date();
+	const [visibleGames, setVisibleGames] = useState(5);
 	const [searchTerm, setSearchTerm] = useState("");
-	const [visibleGames, setVisibleGames] = useState(15);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+	const {email} = useAuth();
+  
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(apiUrl);
+				const response = await fetch(`http://localhost:3000/api/myschedule/${email}`);
 				const result = await response.json();
-				result.sort((a, b) => new Date(a.DateUtc) - new Date(b.DateUtc));
 				setData(result);
 			} catch (error) {
 				console.error("Error fetching data:", error);
-			}
-		};
-		fetchData();
-	}, [apiUrl]);
+				setError("Error fetching data");
+			} finally {
+				setLoading(false);
+			  }
+			};
+		
+			fetchData();
+		  }, []);
 
+	const currentDateTime = new Date();
 	const upcomingGames = data
 		?.filter(
 			(fixture) =>
@@ -34,19 +39,20 @@ const SoccerLeagues = () => {
 		)
 		.sort((a, b) => new Date(a.DateUtc) - new Date(b.DateUtc));
 
-	const loadMoreGames = () => {
-		setVisibleGames((prevVisibleGames) => prevVisibleGames + 15);
-	};
+		const loadMoreGames = () => {
+			setVisibleGames((prevVisibleGames) => prevVisibleGames + 5);
+		};
+
+		console.log(upcomingGames);
 
 	return (
-		<div className="container">
-			<h2>{leagueName}</h2>
+		<div>
 			<input
-				type="text"
-				placeholder="Search by team name"
-				value={searchTerm}
-				onChange={(e) => setSearchTerm(e.target.value)}
-			/>
+					type="text"
+					placeholder="Search by team name"
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+				/>
 			<div>
 				{upcomingGames ? (
 					<>
@@ -58,7 +64,6 @@ const SoccerLeagues = () => {
 									<th>Home Team</th>
 									<th>Away Team</th>
 									<th>Location</th>
-									<th>Favorite</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -75,33 +80,13 @@ const SoccerLeagues = () => {
 									);
 
 									return (
-										<tr key={`${leagueName}${fixture.MatchNumber}`}>
+										<tr key={`${index}${fixture.MatchNumber}`}>
 											<td>{dateTimeUtc.toLocaleDateString()}</td>
 											<td>{formattedTime}</td>
 											<td>{fixture.HomeTeam}</td>
 											<td>{fixture.AwayTeam}</td>
 											<td>{fixture.Location}</td>
-											<td>
-												<input
-													type="checkbox"
-													checked={myGames.some(
-														(game) =>
-															game.id === `${leagueName}${fixture.MatchNumber}`
-													)}
-													onChange={() => {
-														const game = {
-															...fixture,
-															MatchNumber: `${leagueName}${fixture.MatchNumber}`,
-															id: `${leagueName}${fixture.MatchNumber}`,
-														};
-														if (myGames.some((g) => g.id === game.id)) {
-															removeGame(game.id);
-														} else {
-															addGame(game);
-														}
-													}}
-												/>
-											</td>
+										
 										</tr>
 									);
 								})}
@@ -119,4 +104,4 @@ const SoccerLeagues = () => {
 	);
 };
 
-export default SoccerLeagues;
+export default MyEvents;

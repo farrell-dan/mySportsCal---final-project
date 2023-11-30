@@ -22,13 +22,6 @@ import TennisHome from "./Sports/Tennis";
 import AccountPage from "./Account/Account";
 
 import SoccerLeagues from "./Sports/Soccer/SoccerLeagues";
-// import EnglishPremierLeague from "./Sports/Soccer/Leagues/EnglishPremierLeague";
-// import LaLiga from "./Sports/Soccer/Leagues/LaLiga";
-// import SerieA from "./Sports/Soccer/Leagues/SerieA";
-// import Ligue1 from "./Sports/Soccer/Leagues/Ligue1";
-// import EuropaLeague from "./Sports/Soccer/Leagues/EuropaLeague";
-// import ChampionsLeague from "./Sports/Soccer/Leagues/ChampionsLeague";
-// import Bundesliga from "./Sports/Soccer/Leagues/Bundesliga";
 
 const App = () => {
 	return (
@@ -48,14 +41,8 @@ const App = () => {
 					<Route path="/tennis" element={<TennisHome />} />
 					<Route path="/account" element={<AccountPage />} />
 
-					<Route path="/soccer/:leagueName" element={<SoccerLeagues />} />
-					{/* <Route path="/epl" element={<EnglishPremierLeague />} />
-					<Route path="/laliga" element={<LaLiga />} />
-					<Route path="/seriea" element={<SerieA />} />
-					<Route path="/ligue1" element={<Ligue1 />} />
-					<Route path="/europaleague" element={<EuropaLeague />} />
-					<Route path="/championsleague" element={<ChampionsLeague />} />
-					<Route path="/bundesliga" element={<Bundesliga />} /> */}
+					<Route path="/soccer/:leagueName" element={<SoccerLeagues /> }/>
+
 
 				</Switch>
 			</MyGamesProvider>

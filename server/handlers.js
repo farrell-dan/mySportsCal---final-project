@@ -9,6 +9,7 @@ const serieAData = require("./handlers/Leagues/serieAData")
 const ligue1Data = require("./handlers/Leagues/ligue1Data")
 const championsLeagueData = require("./handlers/Leagues/championsLeagueData")
 const europaLeagueData = require("./handlers/Leagues/europaLeagueData")
+const mySchedule = require("./handlers/mySchedule")
 
 
 
@@ -22,5 +23,6 @@ module.exports = {
     serieAData,
     signUp,
     login,
-    updateSchedule
+    updateSchedule,
+    mySchedule
 }
