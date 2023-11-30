@@ -21,3 +21,23 @@
     background-color: #f2f2f2;
   }
   
+
+  .leagues-container {
+    max-width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10vw;
+    justify-items: center;
+  }
+  
+  .league-link {
+   width: 250px;
+    height: 250px;
+  
+    img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
