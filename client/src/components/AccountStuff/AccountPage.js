@@ -14,19 +14,19 @@ const AccountPage = () => {
 	};
 
 	const renderAuthForm = () => {
-		if(!authenticated){
+		if (!authenticated) {
 			return currentForm === "login" ? (
 				<Login onFormSwitch={toggleForm} />
 			) : (
 				<CreateAccount onFormSwitch={toggleForm} />
-			)
+			);
 		}
 		return (
 			<div className="container">
-			<h2>My Upcoming Games</h2> <MyEvents />
+				<h2>My Upcoming Games</h2> <MyEvents />
 			</div>
-		)
-	}
+		);
+	};
 	return (
 		<div>
 			<h1>AccountPage</h1>

@@ -1,5 +1,3 @@
-const axios = require("axios");
-const bcrypt = require("bcrypt");
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const { MONGO_URI } = process.env;
@@ -12,7 +10,7 @@ const updateSchedule = async (request, response) => {
 
 	try {
 		await client.connect();
-		console.log(newSchedule.length)
+		console.log(newSchedule.length);
 		const result = await client
 			.db("mySportsCal")
 			.collection("Users")

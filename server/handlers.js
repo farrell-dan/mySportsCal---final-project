@@ -10,6 +10,7 @@ const ligue1Data = require("./handlers/Leagues/ligue1Data")
 const championsLeagueData = require("./handlers/Leagues/championsLeagueData")
 const europaLeagueData = require("./handlers/Leagues/europaLeagueData")
 const mySchedule = require("./handlers/mySchedule")
+const removeGameFromSchedule = require("./handlers/removeGame")
 
 
 
@@ -24,5 +25,6 @@ module.exports = {
     signUp,
     login,
     updateSchedule,
-    mySchedule
+    mySchedule,
+    removeGameFromSchedule
 }

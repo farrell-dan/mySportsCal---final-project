@@ -7,8 +7,6 @@ export const MyGamesProvider = ({ children }) => {
 	const [myGames, setMyGames] = useState([]);
 	const { email } = useAuth();
 
-	console.log(myGames);
-
 	const addGame = (game) => {
 		setMyGames((prevGames) => [...prevGames, game]);
 		updateScheduleInBackend([...myGames, game], email);
@@ -22,6 +20,13 @@ export const MyGamesProvider = ({ children }) => {
 			myGames.filter((game) => game.MatchNumber !== matchNumber),
 			email
 		);
+	};
+
+	const deleteGame = (matchNumber) => {
+		setMyGames((prevGames) =>
+			prevGames.filter((game) => game.MatchNumber !== matchNumber)
+		);
+		removeGameInBackend(matchNumber, email);
 	};
 
 	const updateScheduleInBackend = async (newSchedule, userEmail) => {
@@ -39,6 +44,31 @@ export const MyGamesProvider = ({ children }) => {
 			} else {
 				console.error(
 					"Failed to update schedule in the backend",
+					response.status,
+					response.statusText
+				);
+			}
+		} catch (error) {
+			console.error("Error updating schedule in the backend", error);
+		}
+	};
+
+	const removeGameInBackend = async (matchNumber, userEmail) => {
+		try {
+			const response = await fetch(
+				`/api/removeGame/${userEmail}/${matchNumber}`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+			if (response.ok) {
+				console.log("Game removed successfully from the backend");
+			} else {
+				console.error(
+					"Failed to remove game from the backend",
 					response.status,
 					response.statusText
 				);
@@ -77,7 +107,7 @@ export const MyGamesProvider = ({ children }) => {
 
 	return (
 		<MyGamesContext.Provider
-			value={{ myGames, addGame, removeGame, setMyGames }}
+			value={{ myGames, addGame, removeGame, setMyGames, deleteGame }}
 		>
 			{children}
 		</MyGamesContext.Provider>

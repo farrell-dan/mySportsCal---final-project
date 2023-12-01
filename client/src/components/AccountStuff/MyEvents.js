@@ -4,31 +4,30 @@ import { useAuth } from "./AuthProvider";
 
 const MyEvents = () => {
 	const [data, setData] = useState(null);
-	const { myGames, addGame, removeGame } = useMyGames();
+	const { myGames, deleteGame } = useMyGames();
 	const [visibleGames, setVisibleGames] = useState(5);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const { email } = useAuth();
 
+	const fetchData = async () => {
+		try {
+			const response = await fetch(
+				`http://localhost:3000/api/myschedule/${email}`
+			);
+			const result = await response.json();
+			setData(result);
+		} catch (error) {
+			console.error("Error fetching data:", error);
+			setError("Error fetching data");
+		} finally {
+			setLoading(false);
+		}
+	};
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetch(
-					`http://localhost:3000/api/myschedule/${email}`
-				);
-				const result = await response.json();
-				setData(result);
-			} catch (error) {
-				console.error("Error fetching data:", error);
-				setError("Error fetching data");
-			} finally {
-				setLoading(false);
-			}
-		};
-
 		fetchData();
-	}, []);
+	}, [deleteGame]);
 
 	const currentDateTime = new Date();
 	const upcomingGames = data
@@ -45,6 +44,7 @@ const MyEvents = () => {
 	};
 
 	console.log(upcomingGames);
+	console.log(myGames);
 
 	return (
 		<div>
@@ -65,6 +65,7 @@ const MyEvents = () => {
 									<th>Home Team</th>
 									<th>Away Team</th>
 									<th>Location</th>
+									<th>Favorite</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -87,6 +88,16 @@ const MyEvents = () => {
 											<td>{fixture.HomeTeam}</td>
 											<td>{fixture.AwayTeam}</td>
 											<td>{fixture.Location}</td>
+											<td>
+												<button
+													onClick={() => {
+														deleteGame(`${fixture.MatchNumber}`);
+														fetchData(); // Refetch data after deletion
+													}}
+												>
+													Remove
+												</button>
+											</td>
 										</tr>
 									);
 								})}
