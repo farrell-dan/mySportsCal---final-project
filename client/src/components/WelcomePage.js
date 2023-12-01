@@ -5,6 +5,7 @@ import Login from "./AccountStuff/Login";
 import { useAuth } from "./AccountStuff/AuthProvider";
 import MyEvents from "./AccountStuff/MyEvents";
 import CreateAccount from "./AccountStuff/CreateAccount";
+import Calendar from "./Calendar";
 
 const WelcomePage = () => {
 	const { myGames } = useMyGames();
@@ -50,6 +51,7 @@ const WelcomePage = () => {
 		<>
 			<h1>mySPORTScal</h1>
 			<h2>Welcome Page</h2>
+			<Calendar></Calendar>
 			<div className="container">
 				{authenticated ? (
 					<>

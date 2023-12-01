@@ -43,9 +43,6 @@ const MyEvents = () => {
 		setVisibleGames((prevVisibleGames) => prevVisibleGames + 5);
 	};
 
-	console.log(upcomingGames);
-	console.log(myGames);
-
 	return (
 		<div>
 			<input
