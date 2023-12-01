@@ -1,10 +1,10 @@
 import { useMyGames } from "./MyGamesContext";
 import "./Sports/Soccer/Soccer.css";
 import { useState, useEffect } from "react";
-import Login from "./Account/Login";
-import { useAuth } from "./Account/AuthProvider";
-import Register from "./Account/Register";
-import MyEvents from "./Sports/MyEvents";
+import Login from "./AccountStuff/Login";
+import { useAuth } from "./AccountStuff/AuthProvider";
+import MyEvents from "./AccountStuff/MyEvents";
+import CreateAccount from "./AccountStuff/CreateAccount";
 
 const WelcomePage = () => {
 	const { myGames } = useMyGames();
@@ -14,7 +14,6 @@ const WelcomePage = () => {
 	const { login } = useAuth();
 
 	useEffect(() => {
-
 		const currentDateTime = new Date();
 		const filteredGames = myGames.filter(
 			(game) => new Date(game.DateUtc) > currentDateTime
@@ -36,25 +35,29 @@ const WelcomePage = () => {
 		setCurrentForm(formName);
 	};
 
-
 	const renderAuthForm = () => {
 		if (!authenticated) {
-		  return currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />;
+			return currentForm === "login" ? (
+				<Login onFormSwitch={toggleForm} />
+			) : (
+				<CreateAccount onFormSwitch={toggleForm} />
+			);
 		}
 		return <p>No games scheduled, add games to your schedule</p>;
-	  };
+	};
 
 	return (
 		<>
 			<h1>mySPORTScal</h1>
 			<h2>Welcome Page</h2>
 			<div className="container">
-
-
-			
-				
-				{authenticated ? (<><h2>My Upcoming Games</h2> <MyEvents /></>) : renderAuthForm()}
-				
+				{authenticated ? (
+					<>
+						<h2>My Upcoming Games</h2> <MyEvents />
+					</>
+				) : (
+					renderAuthForm()
+				)}
 			</div>
 		</>
 	);

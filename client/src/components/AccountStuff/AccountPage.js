@@ -1,7 +1,7 @@
 import Login from "./Login";
-import Register from "./Register";
 import React, { useState } from "react";
-import "./Forms.css"
+import "./Forms.css";
+import CreateAccount from "./CreateAccount";
 
 const AccountPage = () => {
 	const [currentForm, setCurrentForm] = useState("login");
@@ -16,7 +16,7 @@ const AccountPage = () => {
 			{currentForm === "login" ? (
 				<Login onFormSwitch={toggleForm} />
 			) : (
-				<Register onFormSwitch={toggleForm}/>
+				<CreateAccount onFormSwitch={toggleForm} />
 			)}
 		</div>
 	);

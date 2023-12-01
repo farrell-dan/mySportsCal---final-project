@@ -26,18 +26,17 @@
     max-width: 80vw;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10vw;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 5vw;
     justify-items: center;
   }
   
   .league-link {
-   width: 250px;
-    height: 250px;
-  
-    img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-    }
+   max-width: 100%;
+   height: auto;
+  }
+
+  img{
+    max-width: 100%;
+    height: auto;
   }

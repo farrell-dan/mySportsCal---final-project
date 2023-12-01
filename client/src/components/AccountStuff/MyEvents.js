@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMyGames } from "../MyGamesContext";
-import { useAuth } from "../Account/AuthProvider";
+import { useAuth } from "./AuthProvider";
 
 const MyEvents = () => {
 	const [data, setData] = useState(null);
@@ -9,13 +9,14 @@ const MyEvents = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-	const {email} = useAuth();
-  
+	const { email } = useAuth();
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`http://localhost:3000/api/myschedule/${email}`);
+				const response = await fetch(
+					`http://localhost:3000/api/myschedule/${email}`
+				);
 				const result = await response.json();
 				setData(result);
 			} catch (error) {
@@ -23,11 +24,11 @@ const MyEvents = () => {
 				setError("Error fetching data");
 			} finally {
 				setLoading(false);
-			  }
-			};
-		
-			fetchData();
-		  }, []);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	const currentDateTime = new Date();
 	const upcomingGames = data
@@ -39,20 +40,20 @@ const MyEvents = () => {
 		)
 		.sort((a, b) => new Date(a.DateUtc) - new Date(b.DateUtc));
 
-		const loadMoreGames = () => {
-			setVisibleGames((prevVisibleGames) => prevVisibleGames + 5);
-		};
+	const loadMoreGames = () => {
+		setVisibleGames((prevVisibleGames) => prevVisibleGames + 5);
+	};
 
-		console.log(upcomingGames);
+	console.log(upcomingGames);
 
 	return (
 		<div>
 			<input
-					type="text"
-					placeholder="Search by team name"
-					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
-				/>
+				type="text"
+				placeholder="Search by team name"
+				value={searchTerm}
+				onChange={(e) => setSearchTerm(e.target.value)}
+			/>
 			<div>
 				{upcomingGames ? (
 					<>
@@ -86,7 +87,6 @@ const MyEvents = () => {
 											<td>{fixture.HomeTeam}</td>
 											<td>{fixture.AwayTeam}</td>
 											<td>{fixture.Location}</td>
-										
 										</tr>
 									);
 								})}

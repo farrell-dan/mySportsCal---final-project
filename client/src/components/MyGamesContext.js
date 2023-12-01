@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useAuth } from "./Account/AuthProvider";
+import { useAuth } from "./AccountStuff/AuthProvider";
 
 const MyGamesContext = createContext();
 
@@ -48,29 +48,32 @@ export const MyGamesProvider = ({ children }) => {
 		}
 	};
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!email) {
-        setMyGames([]);
-      } else {
-        try {
-          // Fetch favorite games and set them in state
-          const response = await fetch(`/api/mySchedule/${email}`);
-          if (response.ok) {
-            const favoriteGames = await response.json();
-            setMyGames(favoriteGames);
-          } else {
-            console.error('Failed to fetch favorite games', response.status, response.statusText);
-          }
-        } catch (error) {
-          console.error('Error fetching favorite games', error);
-        }
-      }
-    };
+	useEffect(() => {
+		const fetchData = async () => {
+			if (!email) {
+				setMyGames([]);
+			} else {
+				try {
+					// Fetch favorite games and set them in state
+					const response = await fetch(`/api/mySchedule/${email}`);
+					if (response.ok) {
+						const favoriteGames = await response.json();
+						setMyGames(favoriteGames);
+					} else {
+						console.error(
+							"Failed to fetch favorite games",
+							response.status,
+							response.statusText
+						);
+					}
+				} catch (error) {
+					console.error("Error fetching favorite games", error);
+				}
+			}
+		};
 
-    fetchData();
-  }, [email]);
-
+		fetchData();
+	}, [email]);
 
 	return (
 		<MyGamesContext.Provider

@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import styled from "styled-components";
 import "./NavBar.css";
-import LogoutButton from "../Account/Logout";
+import LogoutButton from "../AccountStuff/Logout";
+import { useAuth } from "../AccountStuff/AuthProvider";
 
 const NavBar = () => {
+const {authenticated} = useAuth();
+
 	useEffect(() => {
 		const primaryNav = document.querySelector(".primary-navigation");
 		const navToggle = document.querySelector(".mobile-nav-toggle");
@@ -89,11 +92,11 @@ const NavBar = () => {
 						<StyledLink aria-hidden="true" to="/account">
 							Account
 						</StyledLink>
-						
 					</StyledLi>
-					<LogoutButton/>
+					{authenticated && (
+						<LogoutButton />
+					)}
 				</StyledUl>
-				
 			</StyledNav>
 		</div>
 	);

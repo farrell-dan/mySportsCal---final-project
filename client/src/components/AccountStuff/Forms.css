@@ -12,7 +12,7 @@ div{
     border-radius: 10px;
 }
 
-.auth-form-container, .login-form, .register-form {
+.auth-form-container, .login-form, .create-account-form {
     display: flex;
     flex-direction: column;
 }

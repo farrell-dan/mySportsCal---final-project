@@ -5,7 +5,7 @@ const Login = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [emailNotExist, setEmailNotExist] = useState(false);
-	const { login } = useAuth(); 
+	const { login } = useAuth();
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -22,13 +22,13 @@ const Login = (props) => {
 
 			if (response.ok) {
 				// Log in was successful
-				login(email)
+				login(email);
 			} else {
 				// Log in failed
 				console.error("Login failed");
 				const responseBody = await response.json();
 				if (responseBody.message === "Email does not exist") {
-					console.log("Email does not exist. Please register.");
+					console.log("Email does not exist. Please create an account.");
 					setEmailNotExist(true);
 				} else {
 					console.log("Login error:", responseBody.message);
@@ -46,11 +46,10 @@ const Login = (props) => {
 			<h2> Log In</h2>
 
 			{emailNotExist && (
-        <div style={{ color: "red", marginBottom: "10px" }}>
-          Email does not exist. Please register.
-        </div>
-      )}
-
+				<div style={{ color: "red", marginBottom: "10px" }}>
+					Email does not exist. Please create an account.
+				</div>
+			)}
 
 			<div className="auth-form-contianer">
 				<form className="login-form" onSubmit={handleSubmit}>
@@ -80,7 +79,7 @@ const Login = (props) => {
 				</p>
 				<button
 					className="link-btn"
-					onClick={() => props.onFormSwitch("register")}
+					onClick={() => props.onFormSwitch("create-account")}
 				>
 					Don't have an account? Create An Account Here
 				</button>

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useAuth } from "./AuthProvider";
 
-const Register = (props) => {
+const CreateAccount = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [fullName, setFullName] = useState("");
+	const {login} = useAuth();
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-
-		fetch("/api/signup", {
+try{
+	const response = await	fetch("/api/signup", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -16,13 +18,23 @@ const Register = (props) => {
 			},
 			body: JSON.stringify({email, password, fullName})
 		});
+
+		if (!response.ok){
+			console.error("Account creation fialed");
+			return
+		}
+
+		await login(email);
+	}catch (error) {
+		console.error("Error during account creation:", error);
+	  }
 	};
 
 	return (
 		<div className="container">
 			<h2> Create Account</h2>
 			<div className="auth-form-contianer">
-				<form className="register-form" onSubmit={handleSubmit}>
+				<form className="create-account-form" onSubmit={handleSubmit}>
 					<label htmlFor="name">Full Name</label>
 					<input
 						value={fullName}
@@ -64,4 +76,4 @@ const Register = (props) => {
 	);
 };
 
-export default Register;
+export default CreateAccount;
