@@ -1,0 +1,84 @@
+.rbc-calendar {
+    width: 80vw;
+    margin: 0 auto;
+    border: 3px solid #ddd;
+}
+
+.rbc-month-view, .rbc-time-view{
+    align-items: stretch;
+    border: 2px solid #ddd;
+}
+.rbc-month-row{
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.rbc-row{
+    justify-content: flex-start;
+}
+
+.rbc-toolbar-label{
+    font-weight: 700;
+    font-size: 2rem;
+    width: 15vw;
+    position: relative;
+    margin: 0 auto;
+}
+
+.rbc-btn-group{
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rbc-time-header-content{
+    align-items: stretch;
+}
+
+.rbc-time-view .rbc-allday-cell{
+    height: 0;
+}
+
+.rbc-time-slot{
+    border: none;
+}
+
+.rbc-timeslot-group{
+    border: none;
+}
+
+.rbc-agenda-view{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: fit-content;
+    margin: 0 auto;
+
+}
+.rbc-agenda-content{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.rbc-agenda-table{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+
+}
+
+tr{
+    width: 100%;
+}
+@media (max-width: 1000px) {
+    .rbc-toolbar{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rbc-toolbar-label{
+        display: flex;
+        justify-content: center;
+    }
+}
+
