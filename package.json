@@ -2,5 +2,8 @@
   "dependencies": {
     "date-fns": "^2.30.0",
     "react-big-calendar": "^1.8.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

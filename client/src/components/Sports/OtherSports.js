@@ -1,24 +1,20 @@
 import { Link } from "react-router-dom";
-import "./Soccer.css";
+import "../Sports/Soccer/Soccer.css";
 import styled, { css } from "styled-components";
 
-const SoccerHome = () => {
+const OtherSports = () => {
 	const leagues = [
-		{ name: "La Liga", path: "/soccer/La%20Liga" },
-		{ name: "Serie A", path: "/soccer/Serie%20A" },
-		{ name: "Premier League", path: "/soccer/Premier%20League" },
-		{ name: "Ligue 1", path: "/soccer/Ligue%201" },
-		{ name: "Bundesliga", path: "/soccer/Bundesliga" },
-		{
-			name: "UEFA Champions League",
-			path: "/soccer/UEFA%20Champions%20League",
-		},
-		{ name: "UEFA Europa League", path: "/soccer/UEFA%20Europa%20League" },
-
-		{ name: "UEFA Europa Conference League", status: "notAdded" },
-		{ name: "UEFA Euro 2024", status: "notAdded" },
-		{ name: "MLS", status: "notAdded" },
-		{ name: "2026 FIFA World Cup", status: "notAdded" },
+		{ sport: "Hockey", name: "NHL", path: "/sports/NHL", status: "added" },
+		{ sport: "Hockey", name: "AHL", status: "notAdded" },
+		{ sport: "Hockey", name: "KHL", status: "notAdded" },
+		{ sport: "Basketball", name: "NBA", path: "/sports/NBA", status: "added" },
+		{ sport: "Football", name: "NFL", path: "/sports/NFL", status: "added" },
+		{ sport: "Football", name: "CFL", status: "notAdded" },
+		{ sport: "Combat", name: "UFC", status: "notAdded" },
+		{ sport: "Baseball", name: "MLB", status: "notAdded" },
+		{ sport: "Motorsport", name: "F1", status: "notAdded" },
+		{ sport: "Tennis", name: "ATP", status: "notAdded" },
+		{ sport: "Tennis", name: "WTA", status: "notAdded" },
 	];
 
 	return (
@@ -53,7 +49,7 @@ const SoccerHome = () => {
 	);
 };
 
-export default SoccerHome;
+export default OtherSports;
 
 const LeagueContainer = styled.div`
 	display: flex;
@@ -98,4 +94,3 @@ const LeagueImageGreyscale = styled.img`
 	opacity: 0.75;
 	pointer-events: none;
 `;
-

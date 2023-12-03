@@ -12,16 +12,12 @@ import NavBar from "./NavBar/NavBar";
 import WelcomePage from "./WelcomePage";
 
 import SoccerHome from "./Sports/Soccer/Soccer";
-import HockeyHome from "./Sports/Hockey";
-import BasketballHome from "./Sports/Basketball";
-import FootballHome from "./Sports/Football";
-import MotorsportHome from "./Sports/Motorsport";
-import CombatHome from "./Sports/Combat";
-import TennisHome from "./Sports/Tennis";
 
 import AccountPage from "./AccountStuff/AccountPage";
 
 import SoccerLeagues from "./Sports/Soccer/SoccerLeagues";
+import OtherSports from "./Sports/OtherSports";
+import CustomEvent from "./Sports/Custom Event";
 
 const App = () => {
 	return (
@@ -32,15 +28,15 @@ const App = () => {
 					<Switch>
 						<Route path="/" element={<WelcomePage />} />
 						<Route path="/soccer" element={<SoccerHome />} />
-						<Route path="/hockey" element={<HockeyHome />} />
-						<Route path="/basketball" element={<BasketballHome />} />
-						<Route path="/football" element={<FootballHome />} />
-						<Route path="/motorsport" element={<MotorsportHome />} />
-						<Route path="/combat" element={<CombatHome />} />
-						<Route path="/tennis" element={<TennisHome />} />
+
+						<Route path="/sports" element={<OtherSports />} />
+
+						<Route path="/custom" element={<CustomEvent />} />
+
 						<Route path="/account" element={<AccountPage />} />
 
 						<Route path="/soccer/:leagueName" element={<SoccerLeagues />} />
+						<Route path="sports/:leagueName" element={<SoccerLeagues />} />
 					</Switch>
 				</MyGamesProvider>
 			</AuthProvider>

@@ -53,46 +53,34 @@ const {authenticated} = useAuth();
 							mySPORTScal
 						</StyledLink>
 					</StyledLi>
+
 					<StyledLi>
 						<StyledLink aria-hidden="true" to="/soccer">
 							Soccer
 						</StyledLink>
 					</StyledLi>
+
+
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/hockey">
-							Hockey
+						<StyledLink aria-hidden="true" to="/sports">
+							Other Sports
 						</StyledLink>
 					</StyledLi>
+
+
+
 					<StyledLi>
-						<StyledLink aria-hidden="true" to="/basketball">
-							Basketball
+						<StyledLink aria-hidden="true" to="/custom">
+							Custom Event
 						</StyledLink>
 					</StyledLi>
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/football">
-							Football
-						</StyledLink>
-					</StyledLi>
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/motorsport">
-							Motorsport
-						</StyledLink>
-					</StyledLi>
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/combat">
-							Combat
-						</StyledLink>
-					</StyledLi>
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/tennis">
-							Tennis
-						</StyledLink>
-					</StyledLi>
+				
 					<StyledLi>
 						<StyledLink aria-hidden="true" to="/account">
 							Account
 						</StyledLink>
 					</StyledLi>
+					
 					{authenticated && (
 						<LogoutButton />
 					)}
