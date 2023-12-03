@@ -29,7 +29,8 @@ const AccountPage = () => {
 	};
 	return (
 		<div>
-			<h1>AccountPage</h1>
+<h1>mySPORTScal</h1>
+			<h3>AccountPage</h3>
 			{renderAuthForm()}
 		</div>
 	);

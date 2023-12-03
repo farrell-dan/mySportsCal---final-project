@@ -43,7 +43,7 @@ const Login = (props) => {
 
 	return (
 		<div className="container">
-			<h2> Log In</h2>
+			<h2> Sign In</h2>
 
 			{emailNotExist && (
 				<div style={{ color: "red", marginBottom: "10px" }}>
@@ -53,7 +53,7 @@ const Login = (props) => {
 
 			<div className="auth-form-contianer">
 				<form className="login-form" onSubmit={handleSubmit}>
-					<label htmlFor="email">Email</label>
+					<label htmlFor="email">Email:</label>
 					<input
 						value={email}
 						type="email"
@@ -63,7 +63,7 @@ const Login = (props) => {
 						onChange={(event) => setEmail(event.target.value)}
 					/>
 
-					<label htmlFor="password">Password</label>
+					<label htmlFor="password">Password:</label>
 					<input
 						value={password}
 						type="password"
@@ -72,11 +72,9 @@ const Login = (props) => {
 						name="password"
 						onChange={(event) => setPassword(event.target.value)}
 					/>
-					<button type="submit">Log In</button>
+					<button type="submit">Sign In</button>
 				</form>
-				<p>
-					Lost password <a href="x"> Click Here</a>
-				</p>
+
 				<button
 					className="link-btn"
 					onClick={() => props.onFormSwitch("create-account")}

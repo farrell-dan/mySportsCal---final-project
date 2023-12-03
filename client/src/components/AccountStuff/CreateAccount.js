@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthProvider";
+import styled from 'styled-components';
 
 const CreateAccount = (props) => {
 	const [email, setEmail] = useState("");
@@ -78,7 +79,8 @@ const CreateAccount = (props) => {
 						onChange={(event) => setFullName(event.target.value)}
 						required
 					/>
-					<label htmlFor="email">Email:</label>
+					
+					<EmailLabel htmlFor="email">Email:</EmailLabel>
 					<input
 						value={email}
 						type="email"
@@ -91,10 +93,12 @@ const CreateAccount = (props) => {
 						}}
 						required
 					/>
-					<label htmlFor="emailConfirmation">Confirm your Email:</label>
+					<ErrorBox>
+					<ConfLabel htmlFor="emailConfirmation">Confirm your Email:</ConfLabel>
 					{emailMatchError && (
-						<p className="error-message">Emails do not match</p>
+						<ErrorMessage className="error-message">Emails do not match</ErrorMessage>
 					)}
+					</ErrorBox>
 					<input
 						value={emailConfirmation}
 						type="email"
@@ -104,7 +108,7 @@ const CreateAccount = (props) => {
 						onChange={handleEmailConfirmationChange}
 					/>
 
-					<label htmlFor="password">Password:</label>
+					<PasswordLabel htmlFor="password">Password:</PasswordLabel>
 					<input
 						value={password}
 						type="password"
@@ -114,10 +118,12 @@ const CreateAccount = (props) => {
 						onChange={(event) => setPassword(event.target.value)}
 						required
 					/>
-					<label htmlFor="passwordConfirmation">Confirm your Password:</label>
+					<ErrorBox>
+					<ConfLabel htmlFor="passwordConfirmation">Confirm your Password:</ConfLabel>
 					{passwordMatchError && (
-						<p className="error-message">Passwords do not match</p>
+						<ErrorMessage className="error-message">Passwords do not match</ErrorMessage>
 					)}
+					</ErrorBox>
 					<input
 						value={passwordConfirmation}
 						type="password"
@@ -136,7 +142,7 @@ const CreateAccount = (props) => {
 					className="link-btn"
 					onClick={() => props.onFormSwitch("login")}
 				>
-					Alreadr have an account? Log In Here
+					Alreadr have an account? Sign In Here
 				</button>
 			</div>
 		</div>
@@ -144,3 +150,32 @@ const CreateAccount = (props) => {
 };
 
 export default CreateAccount;
+
+const ErrorMessage = styled.p`
+  padding: 0 2rem;
+  color: #008cb4; 
+  margin: 0; 
+`;
+
+const ConfLabel = styled.label`
+width: auto;
+margin: 0;
+padding:0;
+`;
+
+const ErrorBox = styled.div`
+width: 75%;
+margin: 0 auto;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+padding: 0.25rem 1rem
+  `;
+
+  const EmailLabel = styled.label`
+  margin-top: 1.5rem 
+  `;
+
+const PasswordLabel = styled.label`
+margin-top: 1.5rem 
+`;

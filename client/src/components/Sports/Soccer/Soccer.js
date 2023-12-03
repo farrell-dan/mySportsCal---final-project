@@ -18,6 +18,8 @@ const SoccerHome = () => {
 	];
 
 	return (
+		<>
+		<h1>mySPORTScal</h1>
 		<div className="leagues-container">
 			{leagues.map((league) => (
 				<LeagueContainer key={league.name}>
@@ -46,6 +48,7 @@ const SoccerHome = () => {
 				</LeagueContainer>
 			))}
 		</div>
+		</>
 	);
 };
 
