@@ -1,14 +1,14 @@
 .container {
-    width: 75%;
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Optional padding for better appearance */
+    width: 80%;
+    margin: 0 auto; 
+    /* padding: 20px;  */
     border: none;
   }
   
   .fixture-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px; /* Optional margin for spacing between the heading and the table */
+    /* margin-top: 15px;  */
   }
   
   .fixture-table th, .fixture-table td {
@@ -40,3 +40,18 @@
     max-width: 100%;
     height: auto;
   }
+
+  table{
+    font-size: .75rem;
+
+  }
+
+  .fixture-table th, .fixture-table td {
+    border: 1px solid #ddd;
+    padding: 0.1rem;
+    text-align: left;
+}
+
+.searchBar {
+  margin-bottom: 1rem;
+}

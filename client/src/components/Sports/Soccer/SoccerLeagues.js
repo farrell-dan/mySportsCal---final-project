@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useMyGames } from "../../MyGamesContext";
 import { useParams } from "react-router-dom";
 
-const SoccerLeagues = (props) => {
+const SoccerLeagues = () => {
 	const [data, setData] = useState(null);
 	const { myGames, addGame, removeGame } = useMyGames();
 	const { leagueName } = useParams();
@@ -10,7 +10,7 @@ const SoccerLeagues = (props) => {
 	const currentDateTime = new Date();
 	const [searchTerm, setSearchTerm] = useState("");
 	const [visibleGames, setVisibleGames] = useState(15);
-	const {test} = props
+
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -47,6 +47,7 @@ const SoccerLeagues = (props) => {
 				placeholder="Search by team name"
 				value={searchTerm}
 				onChange={(e) => setSearchTerm(e.target.value)}
+				className="searchBar"
 			/>
 			<div>
 				{upcomingGames ? (

@@ -66,6 +66,12 @@
 tr{
     width: 100%;
 }
+
+
+button{
+width: auto;
+
+}
 @media (max-width: 1000px) {
     .rbc-toolbar{
         flex-direction: column;

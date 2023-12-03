@@ -5,9 +5,9 @@ div {
 }
 .container {
 	width: 75%;
-	margin: 0 auto;
+	margin: 2rem auto;
 	padding: 2rem;
-	/* border: 1px solid black; */
+
 	border-radius: 10px;
 	box-shadow: 0 10px 40px rgba(50, 50, 93, 0.2), -2px 0 20px rgba(0, 0, 0, 0.3) !important;
 }
@@ -35,16 +35,20 @@ input {
 	border-radius: 10px;
 }
 
+.width {
+	width: 25%;
+}
 button {
 	border: none;
 	background-color: rgba(0, 140, 180, 0.5);
 	padding: 20px;
 	border-radius: 10px;
 	cursor: pointer;
-	width: 25%;
 	margin: 1rem auto;
 	font-size: 1rem;
 	font-weight: 550;
+	display: flex;
+	justify-content: center;
 }
 button:disabled {
 	opacity: 0.75;

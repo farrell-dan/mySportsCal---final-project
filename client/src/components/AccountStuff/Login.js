@@ -72,7 +72,7 @@ const Login = (props) => {
 						name="password"
 						onChange={(event) => setPassword(event.target.value)}
 					/>
-					<button type="submit">Sign In</button>
+					<button className="width" type="submit">Sign In</button>
 				</form>
 
 				<button

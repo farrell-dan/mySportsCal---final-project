@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import styled from "styled-components";
 import "./NavBar.css";
@@ -6,7 +6,8 @@ import LogoutButton from "../AccountStuff/Logout";
 import { useAuth } from "../AccountStuff/AuthProvider";
 
 const NavBar = () => {
-const {authenticated} = useAuth();
+	const { authenticated } = useAuth();
+	const location = useLocation();
 
 	useEffect(() => {
 		const primaryNav = document.querySelector(".primary-navigation");
@@ -33,6 +34,11 @@ const {authenticated} = useAuth();
 		}, 400);
 	});
 
+	const closeMenu = () => {
+		const primaryNav = document.querySelector(".primary-navigation");
+		primaryNav.setAttribute("data-visible", "false");
+	};
+
 	return (
 		<div>
 			<button
@@ -48,42 +54,17 @@ const {authenticated} = useAuth();
 					data-visible="false"
 					className="primary-navigation flex"
 				>
-					<StyledLi className="active">
-						<StyledLink aria-hidden="true" to="/">
-							mySPORTScal
-						</StyledLink>
-					</StyledLi>
-
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/soccer">
-							Soccer
-						</StyledLink>
-					</StyledLi>
-
-
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/sports">
-							Other Sports
-						</StyledLink>
-					</StyledLi>
-
-
-
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/custom">
-							Custom Event
-						</StyledLink>
-					</StyledLi>
-				
-					<StyledLi>
-						<StyledLink aria-hidden="true" to="/account">
-							Account
-						</StyledLink>
-					</StyledLi>
-					
-					{authenticated && (
-						<LogoutButton />
-					)}
+					{menuItems.map((menuItem) => (
+						<StyledLi
+							key={menuItem.path}
+							className={location.pathname === menuItem.path ? "active" : ""}
+						>
+							<StyledLink to={menuItem.path} onClick={closeMenu}>
+								{menuItem.label}
+							</StyledLink>
+						</StyledLi>
+					))}
+					{authenticated && <LogoutButton />}
 				</StyledUl>
 			</StyledNav>
 		</div>
@@ -91,6 +72,14 @@ const {authenticated} = useAuth();
 };
 
 export default NavBar;
+
+const menuItems = [
+	{ path: "/", label: "mySPORTScal" },
+	{ path: "/soccer", label: "Soccer" },
+	{ path: "/sports", label: "Other Sports" },
+	{ path: "/custom", label: "Custom Event" },
+	{ path: "/account", label: "Account" },
+];
 
 const StyledNav = styled.nav`
 	display: flex;
@@ -108,6 +97,15 @@ const StyledLi = styled.li`
 	display: flex;
 	align-items: center;
 	margin-right: 2rem;
+	&.active {
+		text-decoration: underline;
+	}
+
+	&:hover {
+		color: #008cb4;
+	}
+
+
 	@media (max-width: 616px) {
 		margin-right: 0;
 	}
@@ -118,8 +116,15 @@ const StyledLink = styled(Link)`
 	cursor: pointer;
 	font-size: 1.25rem;
 	font-family: "Roboto", sans-serif;
+	color: #032e4c;
+
 
 	&:hover {
-		background-color: pink;
+		color: #008cb4;
+
+		&.active {
+			border-bottom: 2px solid #008cb4;
+			text-decoration: underline;
+		}
 	}
 `;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMyGames } from "../MyGamesContext";
 import { useAuth } from "./AuthProvider";
+import styled from "styled-components";
 
 const MyEvents = () => {
 	const [data, setData] = useState(null);
@@ -45,11 +46,12 @@ const MyEvents = () => {
 
 	return (
 		<div>
-			<input
+			<Search
 				type="text"
 				placeholder="Search by team name"
 				value={searchTerm}
 				onChange={(e) => setSearchTerm(e.target.value)}
+				className="searchBar"
 			/>
 			<div>
 				{upcomingGames ? (
@@ -86,14 +88,14 @@ const MyEvents = () => {
 											<td>{fixture.AwayTeam}</td>
 											<td>{fixture.Location}</td>
 											<td>
-												<button
+												<RemoveButton
 													onClick={() => {
 														deleteGame(`${fixture.MatchNumber}`);
 														fetchData(); // Refetch data after deletion
 													}}
 												>
 													Remove
-												</button>
+												</RemoveButton>
 											</td>
 										</tr>
 									);
@@ -113,3 +115,13 @@ const MyEvents = () => {
 };
 
 export default MyEvents;
+
+const RemoveButton = styled.button`
+width: auto;
+font-size: .75rem;
+padding: 1rem;
+`
+
+const Search = styled.input`
+margin-bottom: 1.5rem;
+`
