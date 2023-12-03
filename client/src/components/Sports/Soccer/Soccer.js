@@ -5,13 +5,13 @@ const SoccerHome = () => {
 	
 
 	const leagues = [
-		{ name: "LaLiga", path: "/soccer/laliga" },
-		{ name: "Serie A", path: "/soccer/seriea" },
-		{ name: "Premier League", path: "/soccer/epl" },
-		{ name: "Ligue 1", path: "/soccer/ligue1" },
-		{ name: "Bundesliga", path: "/soccer/bundesliga" },
-		{ name: "UEFA Champions League", path: "/soccer/ucl" },
-		{ name: "UEFA Europa League", path: "/soccer/uel" },
+		{ name: "La Liga", path: "/soccer/La%20Liga" },
+		{ name: "Serie A", path: "/soccer/Serie%20A" },
+		{ name: "Premier League", path: "/soccer/Premier%20League" },
+		{ name: "Ligue 1", path: "/soccer/Ligue%201" },
+		{ name: "Bundesliga", path: "/soccer/Bundesliga" },
+		{ name: "UEFA Champions League", path: "/soccer/UEFA%20Champions%20League" },
+		{ name: "UEFA Europa League", path: "/soccer/UEFA%20Europa%20League" },
 	];
 
 	return (
@@ -19,7 +19,7 @@ const SoccerHome = () => {
 			<h1>Soccer</h1>
 			<div className="leagues-container">
 				{leagues.map((league) => (
-					<Link key={league.path} to={league.path} className="league-link">
+					<Link key={league.path} to={league.path} className="league-link" test={league.name} >
 						<img
 							src={`/assets/LeagueLogos/Soccer/${league.name.replace(
 								/\s/g,

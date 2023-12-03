@@ -22,13 +22,13 @@ const {
 app.use(express.json());
 
 //gets for the different leagues
-app.get("/api/epl", eplData);
-app.get("/api/laliga", LaLigaData);
-app.get("/api/bundesliga", bundesligaData);
-app.get("/api/seriea", serieAData);
-app.get("/api/ligue1", ligue1Data);
-app.get("/api/ucl", championsLeagueData);
-app.get("/api/uel", europaLeagueData);
+app.get("/api/Premier%20League", eplData);
+app.get("/api/La%20Liga", LaLigaData);
+app.get("/api/Bundesliga", bundesligaData);
+app.get("/api/Serie%20A", serieAData);
+app.get("/api/Ligue%201", ligue1Data);
+app.get("/api/UEFA%20Champions%20League", championsLeagueData);
+app.get("/api/UEFA%20Europa%20League", europaLeagueData);
 
 //Account APIs
 app.post("/api/signup", signUp);

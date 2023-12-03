@@ -1,8 +1,4 @@
-.rbc-calendar {
-    width: 80vw;
-    margin: 0 auto;
-    border: 3px solid #ddd;
-}
+
 
 .rbc-month-view, .rbc-time-view{
     align-items: stretch;
@@ -82,3 +78,10 @@ tr{
     }
 }
 
+
+.rbc-calendar {
+    width: 80vw;
+    margin: 0 auto;
+    border: 3px solid #ddd;
+    background-color: rgba(196, 229, 255, 0.218);
+}
