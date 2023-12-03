@@ -5,7 +5,7 @@ import Login from "./AccountStuff/Login";
 import { useAuth } from "./AccountStuff/AuthProvider";
 import MyEvents from "./AccountStuff/MyEvents";
 import CreateAccount from "./AccountStuff/CreateAccount";
-import CalendarSection from "./Calendar";
+import CalendarSection from "./Calendar/Calendar";
 
 const WelcomePage = () => {
 	const { myGames } = useMyGames();

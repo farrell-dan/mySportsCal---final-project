@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "calendar-link": "^2.6.0",
     "date-fns": "^2.30.0",
     "react-big-calendar": "^1.8.5"
   },

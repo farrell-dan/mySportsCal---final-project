@@ -4,6 +4,7 @@ import "./Forms.css";
 import CreateAccount from "./CreateAccount";
 import { useAuth } from "./AuthProvider";
 import MyEvents from "./MyEvents";
+import DownloadCalendar from "./DownloadCalendar";
 
 const AccountPage = () => {
 	const { authenticated } = useAuth();
@@ -23,13 +24,13 @@ const AccountPage = () => {
 		}
 		return (
 			<div className="container">
-				<h2>My Upcoming Games</h2> <MyEvents />
+				<h2>My Upcoming Games</h2> <MyEvents /><DownloadCalendar/>
 			</div>
 		);
 	};
 	return (
 		<div>
-<h1>mySPORTScal</h1>
+			<h1>mySPORTScal</h1>
 			<h3>AccountPage</h3>
 			{renderAuthForm()}
 		</div>

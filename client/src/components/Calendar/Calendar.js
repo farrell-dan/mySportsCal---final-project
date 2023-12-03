@@ -7,7 +7,7 @@ import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import enUS from "date-fns/locale/en-US";
 import addHours from "date-fns/addHours";
-import { useMyGames } from "./MyGamesContext";
+import { useMyGames } from "../MyGamesContext";
 
 const locales = {
 	"en-US": enUS,
