@@ -120,6 +120,13 @@ const RemoveButton = styled.button`
 width: auto;
 font-size: .75rem;
 padding: 1rem;
+
+@media  (max-width: 800px) {
+        padding: .5rem;
+		font-size: 0.5rem;
+    }
+
+
 `
 
 const Search = styled.input`

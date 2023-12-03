@@ -88,6 +88,8 @@ width: auto;
 .rbc-calendar {
     width: 80vw;
     margin: 0 auto;
-    border: 3px solid #ddd;
-    background-color: rgba(196, 229, 255, 0.218);
+    background-color: #dfe1df; 
+    padding: 1rem;
+    border-radius: 10px;
+	box-shadow: 0 10px 40px rgba(50, 50, 93, 0.2), -2px 0 20px rgba(0, 0, 0, 0.3) !important;
 }

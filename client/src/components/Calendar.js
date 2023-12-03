@@ -22,7 +22,6 @@ const localizer = dateFnsLocalizer({
 });
 
 const CalendarSection = () => {
-	console.log("CalendarSection rendered");
 	const { myGames } = useMyGames();
 
 	const myEventsList = myGames;

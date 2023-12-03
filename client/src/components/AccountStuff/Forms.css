@@ -7,7 +7,7 @@ div {
 	width: 75%;
 	margin: 2rem auto;
 	padding: 2rem;
-
+background-color: #dfe1df;
 	border-radius: 10px;
 	box-shadow: 0 10px 40px rgba(50, 50, 93, 0.2), -2px 0 20px rgba(0, 0, 0, 0.3) !important;
 }

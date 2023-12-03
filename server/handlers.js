@@ -11,7 +11,7 @@ const europaLeagueData = require("./handlers/Leagues/europaLeagueData");
 const mySchedule = require("./handlers/mySchedule");
 const removeGameFromSchedule = require("./handlers/removeGame");
 const nbaData = require("./handlers/Leagues/nbaData");
-const nflData = require("./handlers/Leagues/nhlData");
+const nflData = require("./handlers/Leagues/nflData");
 const nhlData = require("./handlers/Leagues/nhlData");
 
 module.exports = {

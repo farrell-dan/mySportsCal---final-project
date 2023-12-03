@@ -1,7 +1,8 @@
-body {
-    margin: 0;
+html body {
+    margin: 0px !important;
+    box-sizing: border-box;
     border: 0;
-    background-color: #dfe1df;
+    background-color: #c0b8b2;
     color: #032e4c;
 }
 

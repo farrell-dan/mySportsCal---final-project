@@ -74,7 +74,7 @@ const NavBar = () => {
 export default NavBar;
 
 const menuItems = [
-	{ path: "/", label: "mySPORTScal" },
+	{ path: "/", label: "Home" },
 	{ path: "/soccer", label: "Soccer" },
 	{ path: "/sports", label: "Other Sports" },
 	{ path: "/custom", label: "Custom Event" },
@@ -83,6 +83,8 @@ const menuItems = [
 
 const StyledNav = styled.nav`
 	display: flex;
+	margin-top: 1rem;
+	width: 100%;
 	justify-content: flex-end;
 	align-items: center;
 	min-height: 3rem;
@@ -91,12 +93,16 @@ const StyledNav = styled.nav`
 
 const StyledUl = styled.ul`
 	display: flex;
+justify-content: space-around;
+	padding-right: 1rem;
+	width: 100%;
 `;
 
 const StyledLi = styled.li`
 	display: flex;
 	align-items: center;
-	margin-right: 2rem;
+	justify-content: center;
+	padding: 1rem;
 	&.active {
 		text-decoration: underline;
 	}
@@ -114,7 +120,7 @@ const StyledLi = styled.li`
 const StyledLink = styled(Link)`
 	text-decoration: none;
 	cursor: pointer;
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	font-family: "Roboto", sans-serif;
 	color: #032e4c;
 

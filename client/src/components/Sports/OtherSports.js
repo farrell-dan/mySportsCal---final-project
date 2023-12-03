@@ -17,6 +17,7 @@ const OtherSports = () => {
 		{ sport: "Tennis", name: "WTA", status: "notAdded" },
 	];
 
+	
 	return (
 		<>
 		<h1>mySPORTScal</h1>

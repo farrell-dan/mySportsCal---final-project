@@ -20,7 +20,7 @@
 
 @supports (backdrop-filter: blur(1rem)) {
 	.primary-navigation {
-		background: hsl(0 0% 100% / 0.25);
+		background: hsl(0 0% 50% / 0.25);
 		backdrop-filter: blur(1rem);
 	}
 }
@@ -52,13 +52,13 @@
 		width: 2rem;
 		border: 0;
 		top: 0.25rem;
-		right: .5rem;
+		right: 0.5rem;
 	}
 
 	.mobile-nav-toggle:not(:disabled):hover {
 		background-color: rgba(0, 140, 180, 1);
 	}
-	/* can add an x -icon here for when the nav bar is open. */
+
 	.mobile-nav-toggle[aria-expanded="true"] {
 		background: url("../../../public/assets/menu.png") center/cover no-repeat;
 	}
