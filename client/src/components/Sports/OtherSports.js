@@ -60,7 +60,6 @@ const LeagueContainer = styled.div`
 	position: relative;
 `;
 
-// Styled image for the league
 const LeagueImage = styled.img`
 	width: 100%;
 	max-width: 300px; /* adjust the max-width as needed */

@@ -9,12 +9,8 @@ const SoccerHome = () => {
 		{ name: "Premier League", path: "/soccer/Premier%20League" },
 		{ name: "Ligue 1", path: "/soccer/Ligue%201" },
 		{ name: "Bundesliga", path: "/soccer/Bundesliga" },
-		{
-			name: "UEFA Champions League",
-			path: "/soccer/UEFA%20Champions%20League",
-		},
+		{ name: "UEFA Champions League", path: "/soccer/UEFA%20Champions%20League"},
 		{ name: "UEFA Europa League", path: "/soccer/UEFA%20Europa%20League" },
-
 		{ name: "UEFA Europa Conference League", status: "notAdded" },
 		{ name: "UEFA Euro 2024", status: "notAdded" },
 		{ name: "MLS", status: "notAdded" },
@@ -71,7 +67,6 @@ const LeagueImage = styled.img`
 	transition: filter 0.3s ease;
 `;
 
-
 // Styled tooltip
 const Tooltip = styled.div`
 	display: none;
@@ -84,9 +79,9 @@ const Tooltip = styled.div`
 
 	${LeagueContainer}:hover & {
 		display: block;
-        font-size: 1.5rem;
-        background-color: red;
-        color: black;
+		font-size: 1.5rem;
+		background-color: red;
+		color: black;
 	}
 `;
 
@@ -98,4 +93,3 @@ const LeagueImageGreyscale = styled.img`
 	opacity: 0.75;
 	pointer-events: none;
 `;
-
