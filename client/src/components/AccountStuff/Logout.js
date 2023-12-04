@@ -15,12 +15,12 @@ const LogoutButton = () => {
 export default LogoutButton;
 
 const LogoutBtn = styled.button`
-margin: 0;
-padding: 1rem;
-display: flex;
-align-content: center;
-justify-content: center;
-align-items: center;
-font-size: 1.5rem;
-font-weight: normal;
-`
+	margin: 0;
+	padding: 1rem;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: normal;
+`;

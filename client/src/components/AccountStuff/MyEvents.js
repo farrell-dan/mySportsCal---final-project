@@ -91,7 +91,7 @@ const MyEvents = () => {
 												<RemoveButton
 													onClick={() => {
 														deleteGame(`${fixture.MatchNumber}`);
-														fetchData(); // Refetch data after deletion
+														fetchData();
 													}}
 												>
 													Remove

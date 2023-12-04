@@ -44,7 +44,7 @@ const CalendarSection = () => {
 	const formattedEvents = transformEvents(myEventsList);
 
 	return (
-		<div style={{ height: "75vh"}}>
+		<div style={{ height: "75vh" }}>
 			<Calendar
 				localizer={localizer}
 				events={formattedEvents}

@@ -9,7 +9,10 @@ const SoccerHome = () => {
 		{ name: "Premier League", path: "/soccer/Premier%20League" },
 		{ name: "Ligue 1", path: "/soccer/Ligue%201" },
 		{ name: "Bundesliga", path: "/soccer/Bundesliga" },
-		{ name: "UEFA Champions League", path: "/soccer/UEFA%20Champions%20League"},
+		{
+			name: "UEFA Champions League",
+			path: "/soccer/UEFA%20Champions%20League",
+		},
 		{ name: "UEFA Europa League", path: "/soccer/UEFA%20Europa%20League" },
 		{ name: "UEFA Europa Conference League", status: "notAdded" },
 		{ name: "UEFA Euro 2024", status: "notAdded" },
@@ -19,35 +22,35 @@ const SoccerHome = () => {
 
 	return (
 		<>
-		<h1>mySPORTScal</h1>
-		<div className="leagues-container">
-			{leagues.map((league) => (
-				<LeagueContainer key={league.name}>
-					{league.status === "notAdded" ? (
-						<>
-							<LeagueImageGreyscale
-								src={`/assets/LeagueLogos/Soccer/${league.name.replace(
-									/\s/g,
-									""
-								)}Logo.png`}
-								alt={`${league.name} Logo`}
-							/>
-							<Tooltip>{`${league.name} will be added soon`}</Tooltip>
-						</>
-					) : (
-						<Link to={league.path} className="league-link" test={league.name}>
-							<LeagueImage
-								src={`/assets/LeagueLogos/Soccer/${league.name.replace(
-									/\s/g,
-									""
-								)}Logo.png`}
-								alt={`${league.name} Logo`}
-							/>
-						</Link>
-					)}
-				</LeagueContainer>
-			))}
-		</div>
+			<h1>mySPORTScal</h1>
+			<div className="leagues-container">
+				{leagues.map((league) => (
+					<LeagueContainer key={league.name}>
+						{league.status === "notAdded" ? (
+							<>
+								<LeagueImageGreyscale
+									src={`/assets/LeagueLogos/Soccer/${league.name.replace(
+										/\s/g,
+										""
+									)}Logo.png`}
+									alt={`${league.name} Logo`}
+								/>
+								<Tooltip>{`${league.name} will be added soon`}</Tooltip>
+							</>
+						) : (
+							<Link to={league.path} className="league-link" test={league.name}>
+								<LeagueImage
+									src={`/assets/LeagueLogos/Soccer/${league.name.replace(
+										/\s/g,
+										""
+									)}Logo.png`}
+									alt={`${league.name} Logo`}
+								/>
+							</Link>
+						)}
+					</LeagueContainer>
+				))}
+			</div>
 		</>
 	);
 };
@@ -63,22 +66,19 @@ const LeagueContainer = styled.div`
 	position: relative;
 `;
 
-// Styled image for the league
 const LeagueImage = styled.img`
 	width: 100%;
-	max-height: 350px; 
+	max-height: 350px;
 `;
 
 const LeagueImageGreyscale = styled.img`
 	width: 100%;
-	max-height: 350px; 
+	max-height: 350px;
 	filter: grayscale(100%);
 	opacity: 0.75;
 	pointer-events: none;
 `;
 
-
-// Styled tooltip
 const Tooltip = styled.div`
 	display: none;
 	position: absolute;
@@ -95,4 +95,3 @@ const Tooltip = styled.div`
 		color: black;
 	}
 `;
-

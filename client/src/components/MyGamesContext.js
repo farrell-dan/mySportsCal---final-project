@@ -84,7 +84,6 @@ export const MyGamesProvider = ({ children }) => {
 				setMyGames([]);
 			} else {
 				try {
-					// Fetch favorite games and set them in state
 					const response = await fetch(`/api/mySchedule/${email}`);
 					if (response.ok) {
 						const favoriteGames = await response.json();

@@ -24,7 +24,8 @@ const AccountPage = () => {
 		}
 		return (
 			<div className="container">
-				<h2>My Upcoming Games</h2> <MyEvents /><DownloadCalendar/>
+				<h2>My Upcoming Games</h2> <MyEvents />
+				<DownloadCalendar />
 			</div>
 		);
 	};

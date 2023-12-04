@@ -11,7 +11,6 @@ const SoccerLeagues = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [visibleGames, setVisibleGames] = useState(15);
 
-
 	useEffect(() => {
 		const fetchData = async () => {
 			try {

@@ -54,7 +54,6 @@ const WelcomePage = () => {
 			<>
 				{authenticated ? (
 					<>
-						{/* <MyEvents /> */}
 						<CalendarSection />
 					</>
 				) : (

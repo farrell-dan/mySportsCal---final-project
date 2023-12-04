@@ -24,7 +24,6 @@ const {
 
 app.use(express.json());
 
-//gets for the different leagues
 app.get("/api/Premier%20League", eplData);
 app.get("/api/La%20Liga", LaLigaData);
 app.get("/api/Bundesliga", bundesligaData);
@@ -36,11 +35,9 @@ app.get("/api/NHL", nhlData);
 app.get("/api/NBA", nbaData);
 app.get("/api/NFL", nflData);
 
-//Account APIs
 app.post("/api/signup", signUp);
 app.post("/api/login", login);
 
-//schedule APIs
 app.patch("/api/update/:email", updateSchedule);
 app.get("/api/mySchedule/:email", mySchedule);
 app.delete("/api/removeGame/:email/:matchNumber", removeGameFromSchedule);

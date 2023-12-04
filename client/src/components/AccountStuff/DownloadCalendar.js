@@ -54,6 +54,12 @@ const DownloadCalendar = () => {
 		setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
 	};
 
+	const handleOpenAllLinks = (links) => {
+		links.forEach((link) => {
+			window.open(link, "_blank");
+		});
+	};
+
 	return (
 		<>
 			<h2>Download your Events</h2>
@@ -62,9 +68,35 @@ const DownloadCalendar = () => {
 					<thead>
 						<tr>
 							<th>Events</th>
-							<th>Google Calendar</th>
-							<th>Outlook Calendar</th>
-							<th>Apple Calendar</th>
+							<th>
+								<ColumnButton
+									onClick={() =>
+										handleOpenAllLinks(currentGames.map((link) => google(link)))
+									}
+								>
+									Google Calendar
+								</ColumnButton>
+							</th>
+							<th>
+								<ColumnButton
+									onClick={() =>
+										handleOpenAllLinks(
+											currentGames.map((link) => outlook(link))
+										)
+									}
+								>
+									Outlook Calendar
+								</ColumnButton>
+							</th>
+							<th>
+								<ColumnButton
+									onClick={() =>
+										handleOpenAllLinks(currentGames.map((link) => ics(link)))
+									}
+								>
+									Apple Calendar
+								</ColumnButton>
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -126,7 +158,7 @@ export default DownloadCalendar;
 
 const TableContainer = styled.div`
 	display: flex;
-	justify-content: center; /* Center the content horizontally */
+	justify-content: center;
 	margin: 0 auto;
 	width: 100%;
 `;
@@ -155,5 +187,29 @@ const ATags = styled.a`
 	color: #008cb4;
 	&:hover {
 		color: #032e4c;
+	}
+`;
+
+const ColumnButton = styled.button`
+	background-color: rgba(0, 140, 180, 0.5);
+	color: #032e4c;
+	cursor: pointer;
+	padding: 0;
+	border: none;
+	font-size: 0.5rem;
+
+	@media (min-width: 899px) {
+		font-size: 1.15rem;
+	}
+
+	@media (max-width: 900px) and (min-width: 700px) {
+		font-size: 1rem;
+	}
+	@media (max-width: 699px) and (min-width: 500px) {
+		font-size: 0.75rem;
+	}
+
+	&:hover {
+		color: rgba(0, 140, 180, 1);
 	}
 `;

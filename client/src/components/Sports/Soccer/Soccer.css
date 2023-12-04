@@ -1,66 +1,67 @@
 .container {
-    width: 80%;
-    margin: 0 auto; 
-    border: none;
-  }
-  
-  .fixture-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .fixture-table th, .fixture-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .fixture-table th {
-    background-color: #f2f2f2;
-  }
-  
-
-  .leagues-container {
-    max-width: 80vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 5vw;
-    justify-items: center;
-  }
-  
-  .league-link {
-   max-width: 100%;
-   height: auto;
-  }
-
-  img{
-    max-width: 100%;
-    height: auto;
-   max-height: 350px;
-  }
-
-  table {
-    font-size: 0.5rem;
-
-    @media (min-width: 899px) {
-        font-size: 1.15rem;
-    }
-
-    @media (max-width: 900px) and (min-width: 700px) {
-        font-size: 1rem;
-    }
-    @media (max-width: 699px) and (min-width: 500px) {
-      font-size: 0.75rem;
-  }
+	width: 80%;
+	margin: 0 auto;
+	border: none;
 }
 
-  .fixture-table th, .fixture-table td {
-    border: 1px solid #ddd;
-    padding: 0.1rem;
-    text-align: left;
+.fixture-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.fixture-table th,
+.fixture-table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+}
+
+.fixture-table th {
+	background-color: #f2f2f2;
+}
+
+.leagues-container {
+	max-width: 80vw;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 5vw;
+	justify-items: center;
+}
+
+.league-link {
+	max-width: 100%;
+	height: auto;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	max-height: 350px;
+}
+
+table {
+	font-size: 0.5rem;
+
+	@media (min-width: 899px) {
+		font-size: 1.15rem;
+	}
+
+	@media (max-width: 900px) and (min-width: 700px) {
+		font-size: 1rem;
+	}
+	@media (max-width: 699px) and (min-width: 500px) {
+		font-size: 0.75rem;
+	}
+}
+
+.fixture-table th,
+.fixture-table td {
+	border: 1px solid #ddd;
+	padding: 0.1rem;
+	text-align: left;
 }
 
 .searchBar {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthProvider";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const CreateAccount = (props) => {
 	const [email, setEmail] = useState("");
@@ -79,7 +79,7 @@ const CreateAccount = (props) => {
 						onChange={(event) => setFullName(event.target.value)}
 						required
 					/>
-					
+
 					<EmailLabel htmlFor="email">Email:</EmailLabel>
 					<input
 						value={email}
@@ -94,10 +94,14 @@ const CreateAccount = (props) => {
 						required
 					/>
 					<ErrorBox>
-					<ConfLabel htmlFor="emailConfirmation">Confirm your Email:</ConfLabel>
-					{emailMatchError && (
-						<ErrorMessage className="error-message">Emails do not match</ErrorMessage>
-					)}
+						<ConfLabel htmlFor="emailConfirmation">
+							Confirm your Email:
+						</ConfLabel>
+						{emailMatchError && (
+							<ErrorMessage className="error-message">
+								Emails do not match
+							</ErrorMessage>
+						)}
 					</ErrorBox>
 					<input
 						value={emailConfirmation}
@@ -119,10 +123,14 @@ const CreateAccount = (props) => {
 						required
 					/>
 					<ErrorBox>
-					<ConfLabel htmlFor="passwordConfirmation">Confirm your Password:</ConfLabel>
-					{passwordMatchError && (
-						<ErrorMessage className="error-message">Passwords do not match</ErrorMessage>
-					)}
+						<ConfLabel htmlFor="passwordConfirmation">
+							Confirm your Password:
+						</ConfLabel>
+						{passwordMatchError && (
+							<ErrorMessage className="error-message">
+								Passwords do not match
+							</ErrorMessage>
+						)}
 					</ErrorBox>
 					<input
 						value={passwordConfirmation}
@@ -152,30 +160,30 @@ const CreateAccount = (props) => {
 export default CreateAccount;
 
 const ErrorMessage = styled.p`
-  padding: 0 2rem;
-  color: #008cb4; 
-  margin: 0; 
+	padding: 0 2rem;
+	color: #008cb4;
+	margin: 0;
 `;
 
 const ConfLabel = styled.label`
-width: auto;
-margin: 0;
-padding:0;
+	width: auto;
+	margin: 0;
+	padding: 0;
 `;
 
 const ErrorBox = styled.div`
-width: 75%;
-margin: 0 auto;
-display: flex;
-flex-direction: row;
-justify-content: flex-start;
-padding: 0.25rem 1rem
-  `;
+	width: 75%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	padding: 0.25rem 1rem;
+`;
 
-  const EmailLabel = styled.label`
-  margin-top: 1.5rem 
-  `;
+const EmailLabel = styled.label`
+	margin-top: 1.5rem;
+`;
 
 const PasswordLabel = styled.label`
-margin-top: 1.5rem 
+	margin-top: 1.5rem;
 `;

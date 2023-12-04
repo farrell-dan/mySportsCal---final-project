@@ -47,10 +47,9 @@
 
 	@media (max-width: 450px) {
 		.primary-navigation {
-
 			padding: min(25vh, 8rem) 0.25rem;
-
-		}}
+		}
+	}
 
 	.mobile-nav-toggle {
 		display: block;

@@ -93,7 +93,7 @@ const StyledNav = styled.nav`
 
 const StyledUl = styled.ul`
 	display: flex;
-justify-content: space-around;
+	justify-content: space-around;
 	padding-right: 1rem;
 	width: 100%;
 `;
@@ -122,7 +122,6 @@ const StyledLink = styled(Link)`
 	font-size: 1.5rem;
 	font-family: "Roboto", sans-serif;
 	color: #032e4c;
-
 
 	&:hover {
 		color: #008cb4;

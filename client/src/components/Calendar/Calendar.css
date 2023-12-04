@@ -1,95 +1,88 @@
-
-
-.rbc-month-view, .rbc-time-view{
-    align-items: stretch;
-    border: 2px solid #ddd;
+.rbc-month-view,
+.rbc-time-view {
+	align-items: stretch;
+	border: 2px solid #ddd;
 }
-.rbc-month-row{
-    align-items: stretch;
-    justify-content: flex-start;
-}
-
-.rbc-row{
-    justify-content: flex-start;
+.rbc-month-row {
+	align-items: stretch;
+	justify-content: flex-start;
 }
 
-.rbc-toolbar-label{
-    font-weight: 700;
-    font-size: 2rem;
-    width: 15vw;
-    position: relative;
-    margin: 0 auto;
+.rbc-row {
+	justify-content: flex-start;
 }
 
-.rbc-btn-group{
-    width: auto;
-    display: flex;
-    justify-content: flex-start;
+.rbc-toolbar-label {
+	font-weight: 700;
+	font-size: 2rem;
+	width: 15vw;
+	position: relative;
+	margin: 0 auto;
 }
 
-.rbc-time-header-content{
-    align-items: stretch;
+.rbc-btn-group {
+	width: auto;
+	display: flex;
+	justify-content: flex-start;
 }
 
-.rbc-time-view .rbc-allday-cell{
-    height: 0;
+.rbc-time-header-content {
+	align-items: stretch;
 }
 
-.rbc-time-slot{
-    border: none;
+.rbc-time-view .rbc-allday-cell {
+	height: 0;
 }
 
-.rbc-timeslot-group{
-    border: none;
+.rbc-time-slot {
+	border: none;
 }
 
-.rbc-agenda-view{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: fit-content;
-    margin: 0 auto;
-
-}
-.rbc-agenda-content{
-    display: flex;
-    justify-content: flex-start;
-
-}
-.rbc-agenda-table{
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-
+.rbc-timeslot-group {
+	border: none;
 }
 
-tr{
-    width: 100%;
+.rbc-agenda-view {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	width: fit-content;
+	margin: 0 auto;
+}
+.rbc-agenda-content {
+	display: flex;
+	justify-content: flex-start;
+}
+.rbc-agenda-table {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
 }
 
+tr {
+	width: 100%;
+}
 
-button{
-width: auto;
-
+button {
+	width: auto;
 }
 @media (max-width: 1000px) {
-    .rbc-toolbar{
-        flex-direction: column;
-        align-items: center;
-    }
+	.rbc-toolbar {
+		flex-direction: column;
+		align-items: center;
+	}
 
-    .rbc-toolbar-label{
-        display: flex;
-        justify-content: center;
-    }
+	.rbc-toolbar-label {
+		display: flex;
+		justify-content: center;
+	}
 }
 
-
 .rbc-calendar {
-    width: 80vw;
-    margin: 0 auto;
-    background-color: #dfe1df; 
-    padding: 1rem;
-    border-radius: 10px;
+	width: 80vw;
+	margin: 0 auto;
+	background-color: #dfe1df;
+	padding: 1rem;
+	border-radius: 10px;
 	box-shadow: 0 10px 40px rgba(50, 50, 93, 0.2), -2px 0 20px rgba(0, 0, 0, 0.3) !important;
 }

@@ -17,38 +17,37 @@ const OtherSports = () => {
 		{ sport: "Tennis", name: "WTA", status: "notAdded" },
 	];
 
-	
 	return (
 		<>
-		<h1>mySPORTScal</h1>
-		<div className="leagues-container">
-			{leagues.map((league) => (
-				<LeagueContainer key={league.name}>
-					{league.status === "notAdded" ? (
-						<>
-							<LeagueImageGreyscale
-								src={`/assets/LeagueLogos/Soccer/${league.name.replace(
-									/\s/g,
-									""
-								)}Logo.png`}
-								alt={`${league.name} Logo`}
-							/>
-							<Tooltip>{`${league.name} will be added soon`}</Tooltip>
-						</>
-					) : (
-						<Link to={league.path} className="league-link" test={league.name}>
-							<LeagueImage
-								src={`/assets/LeagueLogos/Soccer/${league.name.replace(
-									/\s/g,
-									""
-								)}Logo.png`}
-								alt={`${league.name} Logo`}
-							/>
-						</Link>
-					)}
-				</LeagueContainer>
-			))}
-		</div>
+			<h1>mySPORTScal</h1>
+			<div className="leagues-container">
+				{leagues.map((league) => (
+					<LeagueContainer key={league.name}>
+						{league.status === "notAdded" ? (
+							<>
+								<LeagueImageGreyscale
+									src={`/assets/LeagueLogos/Soccer/${league.name.replace(
+										/\s/g,
+										""
+									)}Logo.png`}
+									alt={`${league.name} Logo`}
+								/>
+								<Tooltip>{`${league.name} will be added soon`}</Tooltip>
+							</>
+						) : (
+							<Link to={league.path} className="league-link" test={league.name}>
+								<LeagueImage
+									src={`/assets/LeagueLogos/Soccer/${league.name.replace(
+										/\s/g,
+										""
+									)}Logo.png`}
+									alt={`${league.name} Logo`}
+								/>
+							</Link>
+						)}
+					</LeagueContainer>
+				))}
+			</div>
 		</>
 	);
 };
@@ -66,12 +65,9 @@ const LeagueContainer = styled.div`
 
 const LeagueImage = styled.img`
 	width: 100%;
-	max-width: 300px; 
-
+	max-width: 300px;
 `;
 
-
-// Styled tooltip
 const Tooltip = styled.div`
 	display: none;
 	position: absolute;
@@ -83,15 +79,15 @@ const Tooltip = styled.div`
 
 	${LeagueContainer}:hover & {
 		display: block;
-        font-size: 1.5rem;
-        background-color: red;
-        color: black;
+		font-size: 1.5rem;
+		background-color: red;
+		color: black;
 	}
 `;
 
 const LeagueImageGreyscale = styled.img`
 	width: 100%;
-	max-width: 300px; 
+	max-width: 300px;
 	filter: grayscale(100%);
 	opacity: 0.75;
 	pointer-events: none;

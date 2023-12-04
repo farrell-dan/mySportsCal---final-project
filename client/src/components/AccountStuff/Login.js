@@ -21,10 +21,8 @@ const Login = (props) => {
 			});
 
 			if (response.ok) {
-				// Log in was successful
 				login(email);
 			} else {
-				// Log in failed
 				console.error("Login failed");
 				const responseBody = await response.json();
 				if (responseBody.message === "Email does not exist") {
@@ -72,7 +70,9 @@ const Login = (props) => {
 						name="password"
 						onChange={(event) => setPassword(event.target.value)}
 					/>
-					<button className="width" type="submit">Sign In</button>
+					<button className="width" type="submit">
+						Sign In
+					</button>
 				</form>
 
 				<button
