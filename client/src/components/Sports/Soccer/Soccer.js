@@ -66,9 +66,17 @@ const LeagueContainer = styled.div`
 // Styled image for the league
 const LeagueImage = styled.img`
 	width: 100%;
-	max-width: 300px; /* adjust the max-width as needed */
-	transition: filter 0.3s ease;
+	max-height: 350px; 
 `;
+
+const LeagueImageGreyscale = styled.img`
+	width: 100%;
+	max-height: 350px; 
+	filter: grayscale(100%);
+	opacity: 0.75;
+	pointer-events: none;
+`;
+
 
 // Styled tooltip
 const Tooltip = styled.div`
@@ -88,11 +96,3 @@ const Tooltip = styled.div`
 	}
 `;
 
-const LeagueImageGreyscale = styled.img`
-	width: 100%;
-	max-width: 300px; /* adjust the max-width as needed */
-	transition: filter 0.3s ease;
-	filter: grayscale(100%);
-	opacity: 0.75;
-	pointer-events: none;
-`;

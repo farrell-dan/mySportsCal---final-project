@@ -66,8 +66,8 @@ const LeagueContainer = styled.div`
 
 const LeagueImage = styled.img`
 	width: 100%;
-	max-width: 300px; /* adjust the max-width as needed */
-	transition: filter 0.3s ease;
+	max-width: 300px; 
+
 `;
 
 
@@ -91,8 +91,7 @@ const Tooltip = styled.div`
 
 const LeagueImageGreyscale = styled.img`
 	width: 100%;
-	max-width: 300px; /* adjust the max-width as needed */
-	transition: filter 0.3s ease;
+	max-width: 300px; 
 	filter: grayscale(100%);
 	opacity: 0.75;
 	pointer-events: none;
