@@ -102,7 +102,7 @@ const StyledLi = styled.li`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 1rem;
+	padding: 1rem 0.5rem;
 	&.active {
 		text-decoration: underline;
 	}
@@ -110,7 +110,6 @@ const StyledLi = styled.li`
 	&:hover {
 		color: #008cb4;
 	}
-
 
 	@media (max-width: 616px) {
 		margin-right: 0;

@@ -25,7 +25,7 @@
 	}
 }
 
-@media (max-width: 675px) {
+@media (max-width: 750px) {
 	.primary-navigation {
 		--gap: 3rem;
 
@@ -34,6 +34,7 @@
 		inset: 0 0 0 50%;
 
 		flex-direction: column;
+		align-items: flex-start;
 		padding: min(25vh, 8rem) 2rem;
 
 		transform: translateX(100%);
@@ -43,6 +44,13 @@
 	.primary-navigation[data-visible="true"] {
 		transform: translateX(0%);
 	}
+
+	@media (max-width: 450px) {
+		.primary-navigation {
+
+			padding: min(25vh, 8rem) 0.25rem;
+
+		}}
 
 	.mobile-nav-toggle {
 		display: block;

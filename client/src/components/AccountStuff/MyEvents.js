@@ -117,18 +117,16 @@ const MyEvents = () => {
 export default MyEvents;
 
 const RemoveButton = styled.button`
-width: auto;
-font-size: .75rem;
-padding: 1rem;
+	width: auto;
+	font-size: 0.75rem;
+	padding: 1rem;
 
-@media  (max-width: 800px) {
-        padding: .5rem;
+	@media (max-width: 800px) {
+		padding: 0.5rem;
 		font-size: 0.5rem;
-    }
-
-
-`
+	}
+`;
 
 const Search = styled.input`
-margin-bottom: 1.5rem;
-`
+	margin-bottom: 1.5rem;
+`;
