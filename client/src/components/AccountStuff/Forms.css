@@ -37,6 +37,10 @@ input {
 
 .width {
 	width: 25%;
+
+	@media (max-width: 500px) {
+		width: 40%;
+	}
 }
 button {
 	border: none;

@@ -10,6 +10,8 @@ const DownloadCalendar = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const gamesPerPage = 10;
 
+	const events = myGames;
+
 	const generateCalendarLinks = (events) => {
 		const currentDate = new Date();
 
@@ -18,11 +20,17 @@ const DownloadCalendar = () => {
 			.map((event) => {
 				const { HomeTeam, AwayTeam, DateUtc, Location, MatchNumber } = event;
 
+				const startsAt = new Date(DateUtc);
+				const endsAt = addHours(new Date(DateUtc), 2);
+
+				const startsAtISO = startsAt.toISOString();
+				const endsAtISO = endsAt.toISOString();
+
 				return {
 					title: `${HomeTeam} vs ${AwayTeam}`,
-					// description: 'Your event description here',
-					startsAt: new Date(DateUtc),
-					endsAt: addHours(new Date(DateUtc), 2),
+					description: MatchNumber,
+					start: startsAtISO,
+					end: endsAtISO,
 					location: Location,
 				};
 			});
@@ -64,27 +72,31 @@ const DownloadCalendar = () => {
 							<tr key={index}>
 								<td>{link.title}</td>
 								<td>
-									<a
+									<ATags
 										href={google(link)}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
 										Google
-									</a>
+									</ATags>
 								</td>
 								<td>
-									<a
+									<ATags
 										href={outlook(link)}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
 										Outlook
-									</a>
+									</ATags>
 								</td>
 								<td>
-									<a href={ics(link)} target="_blank" rel="noopener noreferrer">
+									<ATags
+										href={ics(link)}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
 										Apple
-									</a>
+									</ATags>
 								</td>
 							</tr>
 						))}
@@ -136,5 +148,12 @@ const PageButton = styled.button`
 	@media (max-width: 800px) {
 		padding: 0.5rem;
 		font-size: 0.5rem;
+	}
+`;
+
+const ATags = styled.a`
+	color: #008cb4;
+	&:hover {
+		color: #032e4c;
 	}
 `;
