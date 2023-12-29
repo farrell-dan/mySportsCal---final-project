@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMyGames } from "../MyGamesContext";
+import { useMyGames } from "./MyGamesContext";
 import styled from "styled-components";
 
 const AddEventForm = () => {

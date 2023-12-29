@@ -17,7 +17,7 @@ import AccountPage from "./AccountStuff/AccountPage";
 
 import SoccerLeagues from "./Sports/Soccer/SoccerLeagues";
 import OtherSports from "./Sports/OtherSports";
-import CustomEvent from "./Sports/Custom Event";
+import CustomEvent from "./Sports/Custom Events";
 
 const App = () => {
 	return (
