@@ -15,8 +15,8 @@ const SoccerHome = () => {
 		},
 		{ name: "UEFA Europa League", path: "/soccer/UEFA%20Europa%20League" },
 		{ name: "UEFA Europa Conference League", status: "notAdded" },
-		{ name: "UEFA Euro 2024", status: "notAdded" },
-		{ name: "MLS", status: "notAdded" },
+		{ name: "UEFA Euro 2024", path: "/soccer/UEFA%20Euro%202024" },
+		{ name: "MLS", path: "/soccer/MLS" },
 		{ name: "2026 FIFA World Cup", status: "notAdded" },
 	];
 

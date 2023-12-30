@@ -13,6 +13,8 @@ const removeGameFromSchedule = require("./handlers/removeGame");
 const nbaData = require("./handlers/Leagues/nbaData");
 const nflData = require("./handlers/Leagues/nflData");
 const nhlData = require("./handlers/Leagues/nhlData");
+const eurosData = require("./handlers/Leagues/eurosData")
+const mlsData = require("./handlers/Leagues/mlsData")
 
 module.exports = {
 	eplData,
@@ -25,6 +27,8 @@ module.exports = {
 	nflData,
 	nbaData,
 	nhlData,
+	mlsData,
+	eurosData,
 	signUp,
 	login,
 	updateSchedule,

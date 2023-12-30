@@ -20,6 +20,8 @@ const {
 	nhlData,
 	nbaData,
 	nflData,
+	mlsData,
+	eurosData
 } = require("./handlers");
 
 app.use(express.json());
@@ -31,6 +33,9 @@ app.get("/api/Serie%20A", serieAData);
 app.get("/api/Ligue%201", ligue1Data);
 app.get("/api/UEFA%20Champions%20League", championsLeagueData);
 app.get("/api/UEFA%20Europa%20League", europaLeagueData);
+app.get("/api/UEFA%20Euro%202024", eurosData);
+app.get("/api/MLS", mlsData);
+
 app.get("/api/NHL", nhlData);
 app.get("/api/NBA", nbaData);
 app.get("/api/NFL", nflData);
