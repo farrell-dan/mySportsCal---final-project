@@ -25,8 +25,8 @@ const AddEventForm = () => {
       AwayTeam: formData.AwayTeam,
       DateUtc: formData.DateUtc,
       Location: formData.Location,
-      Description: formData.Description,
-      id: `${formData.HomeTeam}-${formData.AwayTeam}-${formData.Description}`,
+      MatchNumber: formData.Description,
+      id: `${formData.Description}`,
     };
     addGame(newGame);
 
