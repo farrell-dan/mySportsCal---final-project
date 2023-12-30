@@ -20,19 +20,15 @@ const AddEventForm = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		// Validate form data here if needed
-
-		// Add the new event to the myGames state
-		setMyGames((prevGames) => [
-			...prevGames,
-			{
-				HomeTeam: formData.HomeTeam,
-				AwayTeam: formData.AwayTeam,
-				DateUtc: formData.DateUtc,
-				Location: formData.Location,
-				Description: formData.Description,
-			},
-		]);
+    const newGame = {
+      HomeTeam: formData.HomeTeam,
+      AwayTeam: formData.AwayTeam,
+      DateUtc: formData.DateUtc,
+      Location: formData.Location,
+      Description: formData.Description,
+      id: `${formData.HomeTeam}-${formData.AwayTeam}-${formData.Description}`,
+    };
+    addGame(newGame);
 
 		// Reset the form
 		setFormData({
