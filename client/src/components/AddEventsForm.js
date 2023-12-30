@@ -3,114 +3,131 @@ import { useMyGames } from "./MyGamesContext";
 import styled from "styled-components";
 
 const AddEventForm = () => {
-  const { myGames, setMyGames } = useMyGames();
-  const [formData, setFormData] = useState({
-    HomeTeam: "",
-    AwayTeam: "",
-    DateUtc: "",
-    Location: "",
-    MatchNumber: "",
-  });
+	const { myGames, addGame, setMyGames } = useMyGames();
+	const [formData, setFormData] = useState({
+		HomeTeam: "",
+		AwayTeam: "",
+		DateUtc: "",
+		Location: "",
+		Description: "",
+	});
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prevData) => ({ ...prevData, [name]: value }));
+	};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
-    // Validate form data here if needed
+		// Validate form data here if needed
 
-    // Add the new event to the myGames state
-    setMyGames((prevGames) => [...prevGames, formData]);
+		// Add the new event to the myGames state
+		setMyGames((prevGames) => [
+			...prevGames,
+			{
+				HomeTeam: formData.HomeTeam,
+				AwayTeam: formData.AwayTeam,
+				DateUtc: formData.DateUtc,
+				Location: formData.Location,
+				Description: formData.Description,
+			},
+		]);
 
-    // Reset the form
-    setFormData({
-      HomeTeam: "",
-      AwayTeam: "",
-      DateUtc: "",
-      Location: "",
-      Description: "",
-    });
-  };
+		// Reset the form
+		setFormData({
+			HomeTeam: "",
+			AwayTeam: "",
+			DateUtc: "",
+			Location: "",
+			Description: "",
+		});
+	};
 
-  return (
-    <FormContainer>
-      <h2>Add Custom Event</h2>
-      <Form onSubmit={handleSubmit}>
-        {/* Add your form fields here */}
-        <Label>
-          Home Team:
-          <Input
-            type="text"
-            name="HomeTeam"
-            value={formData.HomeTeam}
-            onChange={handleChange}
-          />
-        </Label>
-        <Label>
-          Away Team:
-          <Input
-            type="text"
-            name="AwayTeam"
-            value={formData.AwayTeam}
-            onChange={handleChange}
-          />
-        </Label>
-        <Label>
-          Date & Time:
-          <Input
-            type="time"
-            name="DateUtc"
-            value={formData.DateUtc}
-            onChange={handleChange}
-          />
-        </Label>
-        <Label>
-          Location:
-          <Input
-            type="text"
-            name="Location"
-            value={formData.Location}
-            onChange={handleChange}
-          />
-        </Label>
-        <Label>
-         Description:
-          <Input
-            type="text"
-            name="Description"
-            value={formData.Description}
-            onChange={handleChange}
-          />
-        </Label>
-        
-        
-        <SubmitButton type="submit">Add Event</SubmitButton>
-      </Form>
-    </FormContainer>
-  );
+	return (
+		<FormContainer>
+			<Form onSubmit={handleSubmit}>
+				<Label>
+					Home Team:
+					<Input
+						type="text"
+						name="HomeTeam"
+						value={formData.HomeTeam}
+						onChange={handleChange}
+					/>
+				</Label>
+				<Label>
+					Away Team:
+					<Input
+						type="text"
+						name="AwayTeam"
+						value={formData.AwayTeam}
+						onChange={handleChange}
+					/>
+				</Label>
+				<Label>
+					Date & Time:
+					<Input
+						type="datetime-local"
+						name="DateUtc"
+						value={formData.DateUtc}
+						onChange={handleChange}
+					/>
+				</Label>
+				<Label>
+					Location:
+					<Input
+						type="text"
+						name="Location"
+						value={formData.Location}
+						onChange={handleChange}
+					/>
+				</Label>
+				<Label>
+					Description:
+					<Input
+						type="text"
+						name="Description"
+						value={formData.Description}
+						onChange={handleChange}
+					/>
+				</Label>
+
+				<SubmitButton type="submit" >Create Event</SubmitButton>
+			</Form>
+		</FormContainer>
+	);
 };
 
 export default AddEventForm;
 
 const FormContainer = styled.div`
-  /* Add your styling for the form container */
+	width: 400px;
+	margin: auto;
 `;
 
 const Form = styled.form`
-  /* Add your styling for the form */
+	display: flex;
+	flex-direction: column;
 `;
 
 const Label = styled.label`
-  /* Add your styling for the form labels */
+	margin-bottom: 16px;
 `;
 
 const Input = styled.input`
-  /* Add your styling for the form inputs */
+	margin-bottom: 8px;
 `;
 
 const SubmitButton = styled.button`
-  /* Add your styling for the submit button */
+	padding: 10px;
+	font-size: 18px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #45a049;
+	}
 `;
