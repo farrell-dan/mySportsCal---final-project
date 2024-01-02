@@ -5,6 +5,7 @@ const Login = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [emailNotExist, setEmailNotExist] = useState(false);
+	const [emailError, setEmailError] = useState("");
 	const { login } = useAuth();
 
 	const handleSubmit = async (event) => {
@@ -28,8 +29,10 @@ const Login = (props) => {
 				if (responseBody.message === "Email does not exist") {
 					console.log("Email does not exist. Please create an account.");
 					setEmailNotExist(true);
+					setEmailError("Email error - Check email entered or please create an account.");
 				} else {
 					console.log("Login error:", responseBody.message);
+					setEmailError("Login error - check password entered");
 				}
 			}
 		} catch (error) {
@@ -43,10 +46,13 @@ const Login = (props) => {
 		<div className="container">
 			<h2> Sign In</h2>
 
-			{emailNotExist && (
+			{/* {emailNotExist && (
 				<div style={{ color: "red", marginBottom: "10px" }}>
 					Email does not exist. Please create an account.
 				</div>
+			)} */}
+			{emailError && (
+				<div style={{ color: "red", marginBottom: "10px" }}>{emailError}</div>
 			)}
 
 			<div className="auth-form-contianer">
