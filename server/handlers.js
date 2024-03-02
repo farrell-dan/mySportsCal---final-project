@@ -15,6 +15,7 @@ const nflData = require("./handlers/Leagues/nflData");
 const nhlData = require("./handlers/Leagues/nhlData");
 const eurosData = require("./handlers/Leagues/eurosData")
 const mlsData = require("./handlers/Leagues/mlsData")
+const copaAmericaData = require ("./handlers/Leagues/copaAmericaData")
 
 module.exports = {
 	eplData,
@@ -29,6 +30,7 @@ module.exports = {
 	nhlData,
 	mlsData,
 	eurosData,
+	copaAmericaData,
 	signUp,
 	login,
 	updateSchedule,
