@@ -1,11 +1,9 @@
-//2023 season data - will need to update when 2024 schedule comes out.
-
 const axios = require('axios');
 
-const nflData = async (req, res) => {
+const mlbData = async (req, res) => {
 
     try {
-        const response = await axios.get('https://fixturedownload.com/feed/json/nfl-2023');
+        const response = await axios.get('https://fixturedownload.com/feed/json/mlb-2024');
         const data = response.data;
         res.json(data);
       } catch (error) {
@@ -14,4 +12,4 @@ const nflData = async (req, res) => {
       };
 };
 
-module.exports = nflData;
+module.exports = mlbData;

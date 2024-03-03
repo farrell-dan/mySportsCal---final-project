@@ -22,7 +22,8 @@ const {
 	nflData,
 	mlsData,
 	eurosData,
-	copaAmericaData
+	copaAmericaData,
+	mlbData,
 } = require("./handlers");
 
 app.use(express.json());
@@ -41,6 +42,7 @@ app.get("/api/MLS", mlsData);
 app.get("/api/NHL", nhlData);
 app.get("/api/NBA", nbaData);
 app.get("/api/NFL", nflData);
+app.get("/api/MLB", mlbData);
 
 app.post("/api/signup", signUp);
 app.post("/api/login", login);
