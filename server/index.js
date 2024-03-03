@@ -35,7 +35,7 @@ app.get("/api/Ligue%201", ligue1Data);
 app.get("/api/UEFA%20Champions%20League", championsLeagueData);
 app.get("/api/UEFA%20Europa%20League", europaLeagueData);
 app.get("/api/UEFA%20Euro%202024", eurosData);
-app.get("/apiCopa%20America", copaAmericaData);
+app.get("/api/Copa%20America%202024", copaAmericaData);
 app.get("/api/MLS", mlsData);
 
 app.get("/api/NHL", nhlData);

@@ -18,6 +18,7 @@ const SoccerHome = () => {
 		{ name: "UEFA Euro 2024", path: "/soccer/UEFA%20Euro%202024" },
 		{ name: "MLS", path: "/soccer/MLS" },
 		{ name: "2026 FIFA World Cup", status: "notAdded" },
+		{ name: "Copa America 2024", path: "/soccer/Copa%20America%202024" },
 	];
 
 	return (
